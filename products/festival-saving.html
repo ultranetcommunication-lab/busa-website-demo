@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Festival saving | Budol Samudayik SACCOS (design demo)</title>
+<link rel="icon" href="https://budol.coop.np/wp-content/uploads/2019/09/cropped-favicon-32x32.jpg">
+<script>
+  // Honour the visitor's reduced-motion setting; ?motion=on forces animations on for previewing the mockup.
+  (function () {
+    var force = /[?&]motion=on\b/.test(location.search);
+    if (!force && matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reduce-motion');
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="inner">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-user-plus" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7M19 8v6M16 11h6"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 10v.01M18 14v.01"/></symbol>
+  <symbol id="i-percent" viewBox="0 0 24 24"><path d="M19 5L5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><rect x="8" y="5" width="8" height="4" rx="1"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 17h.01M12 17h.01M15.5 17h.01"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+  <symbol id="i-transfer" viewBox="0 0 24 24"><path d="M4 8h15l-4-4M20 16H5l4 4"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-grad" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5M22 9v6"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5M16 4.6a3.5 3.5 0 0 1 0 6.8M18 13.7c2.1.7 3.5 2.8 3.5 6.3"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="9" cy="9" r="6"/><path d="M15.5 9.2A6 6 0 1 1 9.2 15.5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10M10 20v-6h4v6"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M3 12l18-8-6 18-3-7z"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9M12 12c0-4 3-7 8-7 0 4-3 7-8 7zM12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8c-1.5-3.5-6-4-6-1.3C6 8 8.5 8 12 8zm0 0c1.5-3.5 6-4 6-1.3C18 8 15.5 8 12 8z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h14v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h14"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></symbol>
+  <symbol id="i-child" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M8 21v-5l-2-3 3-3h6l3 3-2 3v5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M12 8v4M12 15.5v.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+</svg>
+
+<div class="demo-strip" role="note" style="background:#16202A;color:#fff;text-align:center;font:500 13.5px/1.45 system-ui,sans-serif;padding:7px 12px">Design demo, not the official BUSA website. For real services visit <a href="https://budol.coop.np" style="color:#FFD27A;text-decoration:underline">budol.coop.np</a></div>
+
+<!-- ============ Utility bar ============ -->
+<div class="utility">
+  <div class="wrap">
+    <div class="u-contact">
+      <span><svg class="i"><use href="#i-pin"/></svg><span data-ne="मुख्य कार्यालय: बनेपा-६, बुडोल, काभ्रेपलाञ्चोक">Head office: Banepa-6, Budol, Kavrepalanchok</span></span>
+    </div>
+    <div class="u-links">
+      <a href="../products/savings.html" data-ne="ब्याजदर">Interest rates</a>
+      <a href="../media/news.html" data-ne="सूचना">Notices</a>
+      <a href="../downloads.html" data-ne="डाउनलोड">Downloads</a>
+      <a href="../careers.html" data-ne="करियर">Careers</a>
+      <a href="../contact.html#officers" data-feedback="complaint" data-ne="गुनासो">Grievance</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" aria-pressed="true" data-lang="en">EN</button>
+        <button type="button" aria-pressed="false" data-lang="ne">ने</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Header + mega menu ============ -->
+<header class="site" id="siteHeader">
+  <div class="wrap hbar">
+    <a class="brand" href="../index.html" aria-label="Budol Samudayik SACCOS home"><img src="https://budol.coop.np/wp-content/themes/busa/images/logo.jpg" alt="Budol Samudayik Saving and Credit Co-operative Society Ltd."></a>
+    <div class="h-meta">
+      <a class="h-call" href="tel:011660564"><span class="ic"><svg class="i"><use href="#i-phone"/></svg></span><span><small data-ne="फोन गर्नुहोस्">Call us</small><b>011-660564</b></span></a>
+      <a class="h-call h-mail" href="mailto:info@budol.coop.np"><span class="ic"><svg class="i"><use href="#i-mail"/></svg></span><span><small data-ne="इमेल गर्नुहोस्">Email us</small><b>info@budol.coop.np</b></span></a>
+      <a class="btn btn-primary" href="../downloads.html#forms" data-ne="खाता खोल्नुहोस्">Open an account</a>
+    </div>
+  </div>
+  <div class="navrow">
+   <div class="progress" id="progress" aria-hidden="true"></div>
+   <div class="wrap navwrap">
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mega"><svg class="i"><use href="#i-menu"/></svg><span data-ne="मेनु">Menu</span></button>
+    <nav class="mega" id="mega" aria-label="Main">
+      <ul>
+        <li>
+          <button class="top-link" type="button" aria-expanded="false"><span data-ne="हाम्रो बारेमा">About us</span><svg class="i"><use href="#i-down"/></svg></button>
+          <div class="panel-m"><div class="wrap">
+            <div><h4 data-ne="संस्था">The cooperative</h4><ul>
+              <li><a href="../about/introduction.html">Introduction</a></li>
+              <li><a href="../about/vision-mission.html">Vision and mission</a></li>
+              <li><a href="../about/objectives.html">Objectives</a></li>
+              <li><a href="../about/affiliation.html">Affiliation</a></li>
+              <li><a href="../about/message-president.html">Voice of Chairman</a></li>
+              <li><a href="../about/message-ceo.html">Commitment From CEO</a></li>
+            </ul></div>
+            <div><h4 data-ne="व्यवस्थापन">Governance</h4><ul>
+              <li><a href="../team/board.html">Board of directors</a></li>
+              <li><a href="../team/supervisory-committee.html">Account supervisory committee</a></li>
+              <li><a href="../team/advisors.html">Advisors</a></li>
+              <li><a href="../team/sub-committees.html">Sub-committees</a></li>
+              <li><a href="../team/management.html">Management team</a></li>
+            </ul></div>
+            <div><h4 data-ne="पहुँच">Reach</h4><ul>
+              <li><a href="../contact.html">Service centres</a></li>
+              <li><a href="../careers.html">Careers</a></li>
+              <li><a href="https://www.facebook.com/Budolsamudayik">Facebook</a></li>
+            </ul></div>
+            <div class="m-promo"><span>Serving Kavrepalanchok since 2057 B.S.</span><strong>19,908</strong><p>members across five service centres</p></div>
+          </div></div>
+        </li>
+        <li>
+          <button class="top-link" type="button" aria-expanded="false"><span data-ne="बचत">Savings</span><svg class="i"><use href="#i-down"/></svg></button>
+          <div class="panel-m"><div class="wrap" data-menu="saving"></div></div>
+        </li>
+        <li>
+          <button class="top-link" type="button" aria-expanded="false"><span data-ne="ऋण">Loans</span><svg class="i"><use href="#i-down"/></svg></button>
+          <div class="panel-m"><div class="wrap" data-menu="loan"></div></div>
+        </li>
+        <li>
+          <button class="top-link" type="button" aria-expanded="false"><span data-ne="सेवा तथा सुविधा">Services</span><svg class="i"><use href="#i-down"/></svg></button>
+          <div class="panel-m"><div class="wrap">
+            <div><h4>Financial services</h4><ul>
+              <li><a href="../services/money-transfer.html">Money transfer (remittance)</a></li>
+              <li><a href="../services/free-accidental-insurance.html">Free accidental insurance</a></li>
+              <li><a href="../index.html#calc">EMI calculator</a></li>
+            </ul></div>
+            <div><h4>Member welfare</h4><ul>
+              <li><a href="../services/member-relief.html">Member relief programme</a></li>
+              <li><a href="../services/member-support-fund.html">Member support fund</a></li>
+              <li><a href="../services/senior-member-honouring.html">Senior member honouring</a></li>
+              <li><a href="../services/maternal-mother-visit.html">Maternal mother visit</a></li>
+            </ul></div>
+            <div><h4>Education</h4><ul>
+              <li><a href="../services/slc-scholarship.html">SLC honouring and scholarship</a></li>
+              <li><a href="../services/free-copy-pencil.html">Free copy and pencil distribution</a></li>
+            </ul></div>
+            <div class="m-promo"><span>Accident cover for share members</span><strong>Rs 1,00,000</strong><p>Premium paid by BUSA for members aged 16 to 59.</p></div>
+          </div></div>
+        </li>
+        <li>
+          <button class="top-link" type="button" aria-expanded="false"><span data-ne="प्रतिवेदन">Reports</span><svg class="i"><use href="#i-down"/></svg></button>
+          <div class="panel-m"><div class="wrap">
+            <div><h4>Financial reports</h4><ul>
+              <li><a href="../reports/annual-reports.html">Annual reports</a></li>
+              <li><a href="../reports/monthly-reports.html#fy-083-084">Monthly reports, FY 083/84</a></li>
+              <li><a href="../reports/monthly-reports.html#fy-082-083">Monthly reports, FY 082/83</a></li>
+            </ul></div>
+            <div><h4>Publications</h4><ul>
+              <li><a href="../reports/busa-darpan.html">BUSA Darpan</a></li>
+              <li><a href="../reports/agm-decisions.html">General assembly decisions</a></li>
+              <li><a href="../downloads.html#forms">Specification for assets purchasing</a></li>
+            </ul></div>
+            <div><h4>Forms</h4><ul>
+              <li><a href="../downloads.html#forms">Membership form</a></li>
+              <li><a href="../downloads.html#forms">KYM form</a></li>
+              <li><a href="../careers.html">Job application form</a></li>
+            </ul></div>
+            <div class="m-promo"><span>Total assets, Bhadra 2083</span><strong>Rs 2.36 arba</strong><p>Published every month for members.</p></div>
+          </div></div>
+        </li>
+        <li>
+          <button class="top-link" type="button" aria-expanded="false"><span data-ne="मिडिया">Media</span><svg class="i"><use href="#i-down"/></svg></button>
+          <div class="panel-m"><div class="wrap">
+            <div><h4>News</h4><ul>
+              <li><a href="../media/news.html">News and notices</a></li>
+              <li><a href="../media/success-stories.html">Member success stories</a></li>
+            </ul></div>
+            <div><h4>Gallery</h4><ul>
+              <li><a href="../media/gallery.html">Photo gallery</a></li>
+            </ul></div>
+            <div></div>
+            <div class="m-promo"><span>Latest</span><strong style="font-size:20px">27th anniversary celebration</strong><p>Members honoured for their contribution.</p></div>
+          </div></div>
+        </li>
+        <li><a class="top-link" href="../contact.html" data-ne="सम्पर्क">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-search nav-call" href="tel:011660564" aria-label="Call 011-660564"><svg class="i"><use href="#i-phone"/></svg></a>
+    <button class="nav-search" id="searchBtn" type="button" aria-label="Search" aria-expanded="false"><svg class="i"><use href="#i-search"/></svg><span data-ne="खोज्नुहोस्">Search</span></button>
+   </div>
+  </div>
+  <div class="brand-rule"></div>
+  <div class="search-bar" id="searchBar">
+    <div class="wrap" style="flex-direction:column">
+      <div style="display:flex;gap:12px"><input id="siteSearch" type="search" placeholder="Search products, e.g. home loan, fixed deposit, शिक्षा" aria-label="Search products"><button class="btn btn-outline" type="button" id="searchClose">Close</button></div>
+      <ul class="search-results" id="searchResults"></ul>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Notice ticker ============ -->
+<div class="ticker" aria-label="Latest notices">
+  <div class="wrap">
+    <span class="chip"><svg class="i"><use href="#i-bell"/></svg><span data-ne="सूचना">Notice</span></span>
+    <div class="ticker-track" id="tickerTrack" aria-live="polite"></div>
+    <div class="ticker-nav">
+      <button type="button" id="tkPrev" aria-label="Previous notice"><svg class="i"><use href="#i-left"/></svg></button>
+      <button type="button" id="tkNext" aria-label="Next notice"><svg class="i"><use href="#i-right"/></svg></button>
+    </div>
+    <a class="all" href="../media/news.html" data-ne="सबै सूचना">All notices</a>
+  </div>
+</div>
+
+<main id="top">
+<section class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html" data-ne="गृहपृष्ठ">Home</a><span aria-hidden="true">/</span><a href="../products/savings.html">Savings</a><span aria-hidden="true">/</span><span aria-current="page">Festival saving</span></nav>
+    <h1 data-ne="चाडपर्व बचत">Festival saving</h1>
+    
+  </div>
+</section>
+<section class="page-body">
+  <div class="wrap page-grid">
+    <aside class="side-nav card" aria-label="Savings"><h2 data-ne="बचत">Savings</h2><a href="../products/regular-saving.html" data-ne="नियमित बचत">Regular saving</a><a href="../products/child-saving.html" data-ne="कोपिला बचत">Child saving</a><a href="../products/daily-saving.html" data-ne="दैनिक बचत">Daily saving</a><a href="../products/optional-saving.html" data-ne="ऐच्छिक बचत">Optional saving</a><a href="../products/fixed-deposit.html" data-ne="आवधिक बचत">Fixed deposit</a><a href="../products/jewellery-saving.html" data-ne="गहना बचत">Jewellery saving</a><a href="../products/elders-saving.html" data-ne="अभिभावक बचत">Elders saving</a><a href="../products/education-saving.html" data-ne="शिक्षा बचत">Education saving</a><a href="../products/social-saving.html" data-ne="सामाजिक बचत">Social saving</a><a href="../products/insurance-saving.html" data-ne="बीमा बचत">Insurance saving</a><a href="../products/tourism-saving.html" data-ne="पर्यटन बचत">Tourism saving</a><a href="../products/busa-special-saving.html" data-ne="बुसा विशेष बचत">BUSA special saving</a><a href="../products/akshyakosh-saving.html" data-ne="अक्षयकोष बचत">Akshyakosh saving</a><a href="../products/maternity-saving.html" data-ne="मातृत्व सुरक्षा बचत">Maternity security saving</a><a href="../products/festival-saving.html" aria-current="page" data-ne="चाडपर्व बचत">Festival saving</a><a href="../products/member-relief-saving.html" data-ne="सदस्य राहत बचत">Member relief saving</a><a href="../products/loan-recovery-saving.html" data-ne="ऋण असुली बचत">Loan recovery saving</a><a href="../products/joint-optional-saving.html" data-ne="संयुक्त ऐच्छिक बचत">Joint optional saving</a><a href="../products/khutruke-saving.html" data-ne="खुत्रुके बचत">Khutruke saving</a><a href="../products/share-saving.html" data-ne="सेयर बचत">Share saving</a></aside>
+    <div class="page-main">
+<div class="prod-layout">
+  <div class="card pm-body">
+    <div class="k">Saving product</div>
+    <div class="ne" lang="ne">चाडपर्व बचत</div>
+    <div class="pm-rate"><strong>2%</strong><span>per year</span></div>
+    
+    <h3 class="feat-h" lang="ne">विशेषताहरू</h3><ul lang="ne"><li><svg class="i"><use href="#i-check"/></svg><span>खाता खोल्न कुनै शुल्क नलाग्ने।</span></li><li><svg class="i"><use href="#i-check"/></svg><span>न्यूनतम रु १००।- बाट खाता सञ्चालन गरी आफ्नो क्षमता अनुसार जतिसुकै रकम बचत गर्न सकिनेछ।</span></li><li><svg class="i"><use href="#i-check"/></svg><span>तोकिएको चाडपर्वको ७ दिन अगाडि भुक्तानी दिईनेछ।</span></li><li><svg class="i"><use href="#i-check"/></svg><span>दैनिक मौज्दातमा व्याज गणना गरी प्रत्येक ३/३ महिनामा साँवामा पुँजीकृत गरिनेछ।</span></li></ul><p class="slogan" lang="ne">“आफ्नै कमाई रुपैया रुपैया जोडेर मनाऔं चाडपर्व अब दिल खोलेर”</p>
+    <div class="acts"><a class="btn btn-primary" href="../downloads.html#forms">Membership form</a><a class="btn btn-outline" href="../contact.html">Visit a service centre</a></div>
+  </div>
+  <a class="card leaflet-card" href="https://budol.coop.np/wp-content/uploads/2026/09/Festival.jpg" target="_blank" rel="noopener" data-full="https://budol.coop.np/wp-content/uploads/2026/09/Festival.jpg" data-cap="Festival saving leaflet"><img src="https://budol.coop.np/wp-content/uploads/2026/09/Festival.jpg" alt="Festival saving leaflet" loading="lazy"><span>Product leaflet</span></a>
+</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="site">
+  <div class="brand-rule"></div>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <div class="f-brand"><img src="https://budol.coop.np/wp-content/themes/busa/images/logo.jpg" alt="Budol Samudayik SACCOS"></div>
+        <div class="f-contact">
+          <div><svg class="i"><use href="#i-pin"/></svg><span>Head office: Banepa-6, Budol, Kabhrepalanchowk, Nepal</span></div>
+          <div><svg class="i"><use href="#i-phone"/></svg><span><a href="tel:011660564">011-660564</a>, <a href="tel:011662364">011-662364</a></span></div>
+          <div><svg class="i"><use href="#i-mail"/></svg><a href="mailto:info@budol.coop.np">info@budol.coop.np</a></div>
+        </div>
+      </div>
+      <div><h4 data-ne="छिटो लिंक">Quick links</h4><ul>
+        <li><a href="../about/introduction.html">About BUSA</a></li>
+        <li><a href="../team/board.html">Board of directors</a></li>
+        <li><a href="../team/management.html">Management team</a></li>
+        <li><a href="../contact.html">Service centres</a></li>
+        <li><a href="../careers.html">Careers</a></li>
+        <li><a href="#" data-feedback="">Send feedback</a></li>
+      </ul></div>
+      <div><h4 data-ne="सेवाहरू">Products and services</h4><ul>
+        <li><a href="../products/savings.html">Savings products</a></li>
+        <li><a href="../products/loans.html">Loan products</a></li>
+        <li><a href="../index.html#calc">EMI calculator</a></li>
+        <li><a href="../services/money-transfer.html">Money transfer</a></li>
+        <li><a href="../index.html#benefits">Member benefits</a></li>
+      </ul></div>
+      <div><h4 data-ne="प्रतिवेदन तथा फारम">Reports and forms</h4><ul>
+        <li><a href="../reports/annual-reports.html">Annual reports</a></li>
+        <li><a href="../reports/monthly-reports.html">Monthly reports</a></li>
+        <li><a href="../downloads.html#forms">Membership form</a></li>
+        <li><a href="../downloads.html#forms">KYM form</a></li>
+        <li><a href="https://www.facebook.com/Budolsamudayik">Facebook</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="wrap f-reg">
+    <span>जि.स.का. दर्ता नं. <b>०७१/०५०/०५१</b></span>
+    <span>रा.स.नि.प्रा. इजाजतपत्र नं. <b>२०५०-००४७१</b></span>
+    <span>स्था.ले.नं. <b>३०३१२२१५१</b></span>
+  </div>
+  <div class="wrap f-bottom">
+    <span>© 2083 B.S. Budol Samudayik Saving and Credit Co-operative Society Ltd.</span>
+    <span>“सबल र सर्वोत्कृष्ट संस्था”</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top"><svg class="i"><use href="#i-up"/></svg></button>
+
+<dialog class="pm" id="pm" aria-labelledby="pmTitle">
+  <button class="icon-btn pm-close" type="button" aria-label="Close" onclick="this.closest('dialog').close()"><svg class="i"><use href="#i-x"/></svg></button>
+  <div class="pm-in">
+    <div class="pm-body" id="pmBody"></div>
+    <div class="pm-leaf" id="pmLeaf"></div>
+  </div>
+</dialog>
+
+<script src="../assets/data.js"></script>
+<script src="../assets/site.js"></script>
+<script>window.BUSA_FEEDBACK = { endpoint: null };</script>
+<script src="../assets/feedback-widget.js"></script>
+</body>
+</html>

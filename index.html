@@ -17,561 +17,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --brand-950:#032816;
-  --brand-900:#04351D;
-  --brand-800:#064A29;
-  --brand:#0A6B3B;
-  --brand-600:#0E8247;
-  --brand-100:#D6EBDD;
-  --brand-50:#EDF6F0;
-  --red:#D0122B;
-  --red-50:#FDECEE;
-  --gold:#E3A008;
-  --gold-50:#FDF6E3;
-  --ink:#16202A;
-  --text:#3D4956;
-  --muted:#687482;
-  --line:#E1E6EB;
-  --bg:#F4F6F8;
-  --white:#FFFFFF;
-  --r:10px; --r-sm:6px; --r-lg:16px;
-  --shadow-sm:0 1px 2px rgba(16,32,42,.06),0 1px 3px rgba(16,32,42,.08);
-  --shadow:0 2px 4px rgba(16,32,42,.04),0 12px 28px -8px rgba(16,32,42,.16);
-  --head:"Poppins",system-ui,sans-serif;
-  --body:"Mukta",system-ui,sans-serif;
-  --wrap:1240px;
-}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--white);color:var(--text);font-family:var(--body);font-size:16.5px;line-height:1.6;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:var(--brand);text-decoration:none}
-a:hover{text-decoration:underline}
-button,input,select{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-h1,h2,h3,h4{font-family:var(--head);color:var(--ink);margin:0;line-height:1.25;font-weight:600}
-h2{font-size:clamp(24px,2.6vw,32px);letter-spacing:-.01em}
-h3{font-size:19px}
-.mockup-flag{position:fixed;left:12px;bottom:12px;z-index:90;background:var(--ink);color:#fff;font-size:13px;padding:5px 12px;border-radius:999px;opacity:.85;pointer-events:none}
-
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 20px;border-radius:8px;font-family:var(--head);font-weight:500;font-size:14.5px;border:1.5px solid transparent;cursor:pointer;white-space:nowrap;text-decoration:none!important;transition:background .15s,border-color .15s,color .15s}
-.btn-primary{background:var(--brand);color:#fff}
-.btn-primary:hover{background:var(--brand-800)}
-.btn-light{background:#fff;color:var(--brand-900)}
-.btn-light:hover{background:var(--brand-50)}
-.btn-outline{border-color:var(--line);background:#fff;color:var(--ink)}
-.btn-outline:hover{border-color:var(--brand);color:var(--brand)}
-.btn-ghost-w{border-color:rgba(255,255,255,.5);color:#fff;background:transparent}
-.btn-ghost-w:hover{background:rgba(255,255,255,.1);border-color:#fff}
-.btn-sm{padding:7px 14px;font-size:13.5px}
-
-section{padding:80px 0}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:32px;flex-wrap:wrap}
-.sec-head p{margin:8px 0 0;color:var(--muted);max-width:62ch}
-.sec-head .link{font-family:var(--head);font-weight:500;font-size:14.5px;display:inline-flex;align-items:center;gap:4px}
-.brand-rule{height:6px;background:linear-gradient(var(--brand-600) 0 3px,var(--red) 3px 6px)}
-
-/* ---------- Utility bar ---------- */
-.utility{background:var(--brand-900);color:#C5DACB;font-size:14px}
-.utility .wrap{display:flex;align-items:center;gap:22px;min-height:40px}
-.utility a{color:#C5DACB}
-.utility a:hover{color:#fff;text-decoration:none}
-.u-contact{display:flex;gap:20px;align-items:center}
-.u-contact a,.u-contact > span{display:inline-flex;align-items:center;gap:6px}
-.u-contact svg.i{width:15px;height:15px}
-.u-links{margin-left:auto;display:flex;gap:18px;align-items:center}
-.lang{display:inline-flex;border:1px solid #2C6A47;border-radius:6px;overflow:hidden}
-.lang button{border:0;background:transparent;color:#C5DACB;padding:2px 10px;font-size:13px;cursor:pointer;font-weight:600}
-.lang button[aria-pressed="true"]{background:#fff;color:var(--brand-900)}
-
-/* ---------- Header + mega menu ---------- */
-:root{--hb:116px}
-header.site{position:sticky;top:calc(-1 * var(--hb));z-index:60;background:#fff}
-header.site.scrolled{box-shadow:0 4px 18px -8px rgba(16,32,42,.35)}
-.hbar{display:flex;align-items:center;gap:24px;height:var(--hb)}
-.brand{min-width:0;flex-shrink:1;display:block}
-.brand img{height:88px;width:auto;max-width:100%;object-fit:contain}
-.h-meta{margin-left:auto;display:flex;align-items:center;gap:26px;flex-shrink:0}
-.h-call{display:flex;align-items:center;gap:10px;color:var(--ink)}
-.h-call:hover{text-decoration:none;color:var(--brand)}
-.h-call .ic{width:42px;height:42px;border-radius:50%;background:var(--brand-50);color:var(--brand);display:grid;place-items:center;flex-shrink:0}
-.h-call small{display:block;font-size:13px;color:var(--muted);line-height:1.2}
-.h-call b{font-family:var(--head);font-weight:600;font-size:15px;white-space:nowrap}
-.navrow{background:var(--brand);position:relative}
-.navwrap{display:flex;align-items:stretch;height:52px}
-nav.mega{height:100%}
-nav.mega > ul{list-style:none;display:flex;margin:0;padding:0;height:100%}
-nav.mega > ul > li{position:static;display:flex}
-.top-link{display:flex;align-items:center;gap:5px;padding:0 18px;font-family:var(--head);font-weight:500;font-size:15px;color:#fff;border:0;background:none;cursor:pointer;position:relative;white-space:nowrap;transition:background .15s}
-nav.mega > ul > li:first-child .top-link{margin-left:-18px}
-.top-link:hover{text-decoration:none}
-.top-link svg.i{width:15px;height:15px;transition:transform .2s;opacity:.8}
-.top-link::after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .2s}
-nav.mega > ul > li:hover .top-link::after,nav.mega > ul > li.open .top-link::after{transform:scaleX(1)}
-nav.mega > ul > li:hover .top-link,nav.mega > ul > li.open .top-link{background:var(--brand-800);color:#fff}
-.nav-search,.menu-btn{display:flex;align-items:center;gap:8px;border:0;background:transparent;color:#fff;font-family:var(--head);font-size:14.5px;font-weight:500;padding:0 4px 0 18px;cursor:pointer;text-decoration:none!important}
-.nav-search{margin-left:auto;border-left:1px solid rgba(255,255,255,.2)}
-.nav-search:hover,.menu-btn:hover{color:var(--brand-100)}
-.nav-call{display:none}
-nav.mega > ul > li.open .top-link svg.i{transform:rotate(180deg)}
-.panel-m{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);box-shadow:0 24px 40px -20px rgba(16,32,42,.3);display:none}
-nav.mega > ul > li.open .panel-m{display:block}
-.panel-m .wrap{display:grid;grid-template-columns:repeat(3,1fr) 300px;gap:32px;padding-top:28px;padding-bottom:32px}
-.panel-m h4{font-size:13.5px;color:var(--muted);font-weight:500;margin-bottom:10px}
-.panel-m ul{list-style:none;margin:0;padding:0}
-.panel-m li a{display:flex;justify-content:space-between;gap:10px;padding:6px 0;color:var(--ink);font-size:15.5px}
-.panel-m li a:hover{color:var(--brand);text-decoration:none}
-.panel-m li a span{color:var(--muted);font-size:13.5px}
-.m-promo{background:var(--brand-50);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px}
-.m-promo strong{font-family:var(--head);font-size:30px;color:var(--brand-900);line-height:1.1}
-.m-promo p{margin:0;font-size:15px}
-.icon-btn{width:40px;height:40px;border-radius:8px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--ink)}
-.icon-btn:hover{border-color:var(--brand);color:var(--brand)}
-.menu-btn{display:none;padding-left:0}
-
-/* Search overlay */
-.search-bar{display:none;border-top:1px solid var(--line);background:#fff}
-.search-bar.open{display:block}
-.search-bar .wrap{display:flex;gap:12px;padding-top:14px;padding-bottom:14px}
-.search-bar input{flex:1;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
-.search-bar input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-50)}
-.search-results{list-style:none;margin:0;padding:0 0 12px}
-.search-results li a{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);color:var(--ink)}
-
-/* ---------- Notice ticker ---------- */
-.ticker{background:var(--bg);border-bottom:1px solid var(--line);font-size:15px}
-.ticker .wrap{display:flex;align-items:center;gap:14px;min-height:46px}
-.ticker .chip{background:var(--red);color:#fff;font-family:var(--head);font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:4px;flex-shrink:0;display:inline-flex;gap:6px;align-items:center}
-.ticker .chip svg.i{width:14px;height:14px}
-.ticker-track{flex:1;min-width:0;position:relative;height:24px;overflow:hidden}
-.ticker-item{position:absolute;inset:0;display:flex;gap:10px;align-items:center;white-space:nowrap;transition:transform .5s,opacity .5s;opacity:0;transform:translateY(100%)}
-.ticker-item.on{opacity:1;transform:none}
-.ticker-item.out{opacity:0;transform:translateY(-100%)}
-.ticker-item a{color:var(--ink);overflow:hidden;text-overflow:ellipsis}
-.ticker-item time{color:var(--muted);font-size:13.5px;flex-shrink:0}
-.ticker-nav{display:flex;gap:6px}
-.ticker-nav button{width:28px;height:28px;border-radius:6px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer}
-.ticker-nav svg.i{width:14px;height:14px}
-.ticker .all{font-family:var(--head);font-size:13.5px;font-weight:500;flex-shrink:0}
-
-/* ---------- Hero carousel ---------- */
-.hero{position:relative;background:var(--brand-900);color:#fff;overflow:hidden}
-.slides{position:relative;height:460px}
-.slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;opacity:0;visibility:hidden;transition:opacity .7s,visibility .7s}
-.slide.on{opacity:1;visibility:visible}
-.slide-text{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:40px 48px 70px max(20px,calc((100vw - var(--wrap))/2 + 20px));background:linear-gradient(115deg,var(--brand-950),var(--brand-800))}
-.slide-text .kicker{display:inline-flex;align-self:flex-start;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:3px 12px;border-radius:999px;font-size:14px;color:#D9EADF;margin-bottom:18px}
-.slide-text h1,.slide-text h2{color:#fff;font-size:clamp(28px,3.3vw,44px);line-height:1.15;font-weight:600;letter-spacing:-.015em;max-width:15ch}
-.slide-text p{font-size:18px;color:#CFE2D5;max-width:42ch;margin:16px 0 26px}
-.slide-text .rate{font-family:var(--head);font-weight:600;color:var(--gold)}
-.slide-ctas{display:flex;gap:12px;flex-wrap:wrap}
-.slide-media{position:relative;margin-left:-90px;clip-path:polygon(90px 0,100% 0,100% 100%,0 100%)}
-.slide-media img{width:100%;height:100%;object-fit:cover}
-.slide-media::before{content:"";position:absolute;z-index:1;top:0;bottom:0;left:0;width:104px;background:var(--red);clip-path:polygon(90px 0,104px 0,14px 100%,0 100%)}
-.slide-media .credit{position:absolute;right:14px;bottom:76px;z-index:1;background:rgba(0,0,0,.45);color:#fff;font-size:12.5px;padding:2px 10px;border-radius:4px}
-.hero-tabs{position:absolute;left:0;right:0;bottom:0;z-index:3;background:linear-gradient(transparent,rgba(3,40,22,.55))}
-.hero-tabs .wrap{display:flex;align-items:stretch;gap:2px}
-.hero-tabs [role=tab]{flex:1;text-align:left;border:0;background:rgba(3,40,22,.86);color:#CFE2D5;padding:12px 14px 14px;font-family:var(--head);font-size:13.5px;font-weight:500;cursor:pointer;position:relative;backdrop-filter:blur(6px)}
-.hero-tabs [role=tab]:hover{background:rgba(6,74,41,.95);color:#fff}
-.hero-tabs [role=tab][aria-selected="true"]{background:#fff;color:var(--brand-900)}
-.hero-tabs .bar{position:absolute;left:0;top:0;height:3px;background:var(--red);width:0}
-.hero-tabs [aria-selected="true"] .bar{animation:fill var(--dur,6s) linear forwards}
-.hero.paused .hero-tabs [aria-selected="true"] .bar{animation-play-state:paused}
-@keyframes fill{to{width:100%}}
-.hero-pause{flex:0 0 46px!important;display:grid;place-items:center;padding:0!important}
-
-/* ---------- Quick services ---------- */
-.quick{position:relative;z-index:5;margin-top:28px}
-.quick ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
-.quick li+li{border-left:1px solid var(--line)}
-.quick a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:22px 12px 20px;color:var(--ink);height:100%}
-.quick a:hover{background:var(--brand-50);text-decoration:none}
-.quick .ic{width:52px;height:52px;border-radius:14px;background:var(--brand-50);color:var(--brand);display:grid;place-items:center;transition:background .15s,color .15s}
-.quick a:hover .ic{background:var(--brand);color:#fff}
-.quick .ic svg.i{width:26px;height:26px}
-.quick strong{font-family:var(--head);font-weight:500;font-size:14.5px;line-height:1.3}
-.quick small{color:var(--muted);font-size:13px;line-height:1.3;margin-top:-6px}
-
-/* ---------- Featured products ---------- */
-.tabs{display:inline-flex;background:var(--bg);border-radius:10px;padding:4px;gap:2px}
-.tabs button{border:0;background:transparent;padding:8px 18px;border-radius:7px;font-family:var(--head);font-weight:500;font-size:14px;color:var(--muted);cursor:pointer}
-.tabs button[aria-selected="true"]{background:#fff;color:var(--brand-900);box-shadow:var(--shadow-sm)}
-.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.pcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s}
-.pcard:hover{box-shadow:var(--shadow);border-color:#cfd7de}
-.pcard .ph{aspect-ratio:16/10;background:var(--brand-50);overflow:hidden}
-.pcard .ph img{width:100%;height:100%;object-fit:cover}
-.pcard .bd{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
-.pcard .ne{color:var(--muted);font-size:14.5px;margin-top:-4px}
-.pcard .rate{display:flex;align-items:baseline;gap:6px;margin:6px 0 4px}
-.pcard .rate strong{font-family:var(--head);font-size:26px;color:var(--brand);font-weight:600}
-.pcard .rate span{color:var(--muted);font-size:14px}
-.pcard ul{margin:0 0 12px;padding:0;list-style:none;font-size:15px}
-.pcard li{display:flex;gap:8px;padding:3px 0}
-.pcard li svg.i{width:16px;height:16px;color:var(--brand);margin-top:4px}
-.pcard .act{margin-top:auto;display:flex;gap:8px}
-.pcard.all{background:var(--brand-900);border-color:var(--brand-900);color:#CFE2D5;justify-content:space-between;padding:26px}
-.pcard.all h3{color:#fff;font-size:22px}
-.pcard.all p{margin:10px 0 0}
-.pcard.all .count{font-family:var(--head);font-size:56px;color:#fff;line-height:1;font-weight:600}
-
-/* ---------- Rates + EMI ---------- */
-.rates-emi{background:var(--bg)}
-.re-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;align-items:start}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm)}
-.card-h{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 24px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.card-h h3{display:flex;align-items:center;gap:10px}
-.card-h h3 svg.i{color:var(--brand)}
-.rtable-wrap{max-height:532px;overflow:auto}
-.rtable{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-.rtable th{position:sticky;top:0;background:#FAFBFC;text-align:left;font-family:var(--head);font-size:13px;font-weight:500;color:var(--muted);padding:10px 24px;border-bottom:1px solid var(--line);z-index:1}
-.rtable td{padding:11px 24px;border-bottom:1px solid var(--line);vertical-align:middle}
-.rtable tr:hover td{background:var(--brand-50)}
-.rtable td:first-child strong{display:block;color:var(--ink);font-weight:600;font-size:15.5px}
-.rtable td:first-child span{color:var(--muted);font-size:14px}
-.rtable .r{text-align:right;font-family:var(--head);font-weight:600;color:var(--brand-900);white-space:nowrap}
-.rtable .r.na{color:var(--muted);font-weight:500;font-size:13.5px}
-.rtable th.r{text-align:right}
-.rtable .d{text-align:right;width:1%}
-.linkbtn{border:0;background:none;color:var(--brand);font-family:var(--head);font-weight:500;font-size:13.5px;cursor:pointer;padding:4px 0;white-space:nowrap}
-.linkbtn:hover{text-decoration:underline}
-.card-f{padding:14px 24px;font-size:14px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-
-.emi{padding:22px 24px 24px}
-.field{margin-bottom:18px}
-.field label{display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--ink);font-size:15px;margin-bottom:6px}
-.field select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:#fff}
-.numin{display:flex;align-items:center;border:1px solid var(--line);border-radius:8px;overflow:hidden;width:170px;background:#fff}
-.numin span{padding:0 8px;color:var(--muted);font-size:14px;background:var(--bg);align-self:stretch;display:grid;place-items:center}
-.numin input{border:0;width:100%;padding:6px 10px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
-.numin input:focus{outline:none}
-.numin:focus-within{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-50)}
-input[type=range]{width:100%;accent-color:var(--brand);height:24px;margin:4px 0 0}
-.ends{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
-.emi-out{background:var(--brand-900);color:#CFE2D5;border-radius:var(--r);padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-top:6px}
-.emi-out .main{grid-column:1/-1}
-.emi-out small{display:block;font-size:13.5px}
-.emi-out strong{font-family:var(--head);font-weight:600;color:#fff;font-size:19px;font-variant-numeric:tabular-nums}
-.emi-out .main strong{font-size:34px;line-height:1.15}
-.splitbar{grid-column:1/-1;display:flex;height:8px;border-radius:999px;overflow:hidden;background:#2E6E4B}
-.splitbar i{background:var(--gold);transition:width .3s}
-.legend{grid-column:1/-1;display:flex;gap:16px;font-size:13px;margin-top:-8px}
-.legend b{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
-.emi .note{font-size:13.5px;color:var(--muted);margin:12px 0 0}
-
-/* ---------- Financial highlights: G3 ticker bar (BUSA green, hover flips label to exact amount) ---------- */
-section.figures{padding:36px 0;background:#fff}
-.g-bar{display:flex;align-items:stretch;border-radius:12px;overflow:hidden;background:var(--brand);position:relative;transition:box-shadow .3s}
-.g-bar:hover{box-shadow:0 14px 30px -14px rgba(6,74,41,.6)}
-.g-bar::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.16),transparent 65%)}
-.g-bar:hover::before{opacity:1}
-.g-lead{flex:0 0 auto;background:var(--brand-800);padding:14px 22px;display:flex;flex-direction:column;justify-content:center;gap:2px}
-.g-lead h2{font-size:16px;color:#fff;font-weight:600;white-space:nowrap;letter-spacing:0}
-.g-lead span{font-size:13px;color:#D6EBDD;white-space:nowrap}
-.g-lead a{font-family:var(--head);font-size:13px;font-weight:500;color:#fff;text-decoration:underline;white-space:nowrap}
-.g-lead a::after{content:"";display:inline-block;width:6px;height:6px;border-right:2px solid;border-top:2px solid;transform:rotate(45deg);margin:0 0 1px 6px;transition:transform .25s}
-.g-lead a:hover::after{transform:translateX(4px) rotate(45deg)}
-.g-items{flex:1;display:flex;min-width:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}
-.g-item{flex:1 0 auto;padding:14px 20px;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;position:relative;cursor:default;transition:background .25s;outline-offset:-3px}
-.g-item+.g-item{border-left:1px solid rgba(255,255,255,.2)}
-.g-item:hover,.g-item:focus-visible{background:rgba(255,255,255,.07)}
-.g-item::after{content:"";position:absolute;left:20px;right:20px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-.g-item:hover::after,.g-item:focus-visible::after{transform:scaleX(1)}
-.flip{display:block;position:relative;height:19px;overflow:hidden}
-.flip > span{display:block;height:19px;line-height:19px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-.flip .k{font-size:13.5px;color:#DCEFE3;white-space:nowrap}
-.flip .x{position:absolute;left:0;top:100%;font-size:12.5px;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
-.g-item:hover .flip > span,.g-item:focus-visible .flip > span{transform:translateY(-100%)}
-.g-item .val{font-family:var(--head);font-weight:600;color:#fff;white-space:nowrap;font-size:clamp(16px,1.5vw,20px);line-height:1.25;letter-spacing:-.01em;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-.g-item:hover .val,.g-item:focus-visible .val{transform:translateX(3px)}
-
-/* ---------- Benefits ---------- */
-.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.benefit{border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-content:start}
-.benefit .ic{grid-row:1/4;width:48px;height:48px;border-radius:12px;background:var(--brand-50);color:var(--brand);display:grid;place-items:center}
-.benefit .ic svg.i{width:24px;height:24px}
-.benefit .amt{font-family:var(--head);font-weight:600;color:var(--brand-900);font-size:22px;line-height:1.2}
-.benefit h3{font-size:16.5px}
-.benefit p{margin:2px 0 0;font-size:15px}
-.partners{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.partners span{border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:13px;color:var(--ink)}
-
-/* ---------- Updates ---------- */
-.updates{background:var(--bg)}
-.ugrid{display:grid;grid-template-columns:1.1fr 1.1fr .9fr;gap:24px}
-.ucol .card-h{padding:16px 20px}
-.ucol .card-h h3{font-size:17px}
-.ucol .card-h a{font-family:var(--head);font-size:13.5px;font-weight:500}
-.nlist{list-style:none;margin:0;padding:6px 20px 10px}
-.nlist li{border-bottom:1px solid var(--line)}
-.nlist li:last-child{border-bottom:0}
-.nlist a{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:12px 0;color:var(--ink)}
-.nlist a:hover{text-decoration:none}
-.nlist a:hover .t{color:var(--brand)}
-.date{width:52px;border:1px solid var(--line);border-radius:8px;text-align:center;overflow:hidden;align-self:start}
-.date b{display:block;background:var(--red);color:#fff;font-family:var(--head);font-size:11.5px;font-weight:500;padding:1px 0}
-.date span{display:block;font-family:var(--head);font-weight:600;font-size:20px;line-height:1.5}
-.nlist .t{font-weight:600;line-height:1.4;font-size:15.5px}
-.nlist .m{color:var(--muted);font-size:13.5px;display:flex;gap:8px;align-items:center;margin-top:2px}
-.badge-new{background:var(--red-50);color:var(--red);font-weight:700;font-size:11.5px;padding:0 7px;border-radius:4px}
-.news{list-style:none;margin:0;padding:16px 20px 18px;display:grid;gap:14px}
-.news a{display:grid;grid-template-columns:120px 1fr;gap:14px;color:var(--ink)}
-.news a:hover{text-decoration:none}
-.news a:hover .t{color:var(--brand)}
-.news img{width:120px;height:72px;object-fit:cover;border-radius:6px}
-.news .t{font-weight:600;line-height:1.35;font-size:15.5px}
-.news .m{color:var(--muted);font-size:13.5px}
-.dlist{list-style:none;margin:0;padding:6px 20px 12px}
-.dlist a{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);color:var(--ink);font-size:15.5px}
-.dlist li:last-child a{border-bottom:0}
-.dlist a:hover{color:var(--brand);text-decoration:none}
-.dlist .fi{width:34px;height:34px;border-radius:8px;background:var(--red-50);color:var(--red);display:grid;place-items:center;flex-shrink:0}
-.dlist .fi svg.i{width:18px;height:18px}
-.dlist small{display:block;color:var(--muted);font-size:13px}
-.dlist .dl{margin-left:auto;color:var(--muted)}
-
-/* ---------- Leadership ---------- */
-.lgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.leader{display:grid;grid-template-columns:132px 1fr;gap:24px;padding:28px;border:1px solid var(--line);border-radius:var(--r-lg);position:relative}
-.leader img{width:132px;height:160px;object-fit:cover;border-radius:var(--r);object-position:top}
-.leader blockquote{margin:0;font-size:16px;line-height:1.65}
-.leader blockquote::before{content:"“";font-family:Georgia,serif;font-size:56px;line-height:.6;color:var(--brand-100);display:block;margin-bottom:6px}
-.leader footer{margin-top:14px}
-.leader cite{font-style:normal;font-family:var(--head);font-weight:600;color:var(--ink);display:block}
-.leader .role{color:var(--muted);font-size:14.5px}
-
-/* ---------- Locator ---------- */
-.locator{background:var(--bg)}
-.loc-grid{display:grid;grid-template-columns:380px 1fr;gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)}
-.loc-list{list-style:none;margin:0;padding:0;border-right:1px solid var(--line);max-height:470px;overflow:auto}
-.loc-list button{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:#fff;padding:16px 20px;cursor:pointer;border-left:4px solid transparent}
-.loc-list button:hover{background:var(--bg)}
-.loc-list button[aria-current="true"]{background:var(--brand-50);border-left-color:var(--brand)}
-.loc-list .pin{grid-row:1/4;width:34px;height:34px;border-radius:50%;background:var(--brand-50);color:var(--brand);display:grid;place-items:center}
-.loc-list button[aria-current="true"] .pin{background:var(--brand);color:#fff}
-.loc-list .pin svg.i{width:17px;height:17px}
-.loc-list strong{font-family:var(--head);font-weight:500;color:var(--ink);font-size:15px}
-.loc-list span{font-size:14.5px;color:var(--muted)}
-.loc-list .tel{color:var(--text);font-size:14px}
-.loc-map{display:flex;flex-direction:column}
-.loc-map iframe{flex:1;width:100%;min-height:380px;border:0}
-.loc-info{display:flex;gap:28px;padding:14px 20px;border-top:1px solid var(--line);flex-wrap:wrap;font-size:14px;color:var(--muted)}
-.loc-info b{display:block;color:var(--ink);font-weight:600;font-size:15.5px}
-.loc-info a{font-weight:600}
-.officers{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
-.officer{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 20px}
-.officer img{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:top}
-.officer strong{display:block;color:var(--ink);font-family:var(--head);font-weight:500;font-size:15px}
-.officer span{display:block;color:var(--muted);font-size:14px}
-.officer .call{margin-left:auto}
-
-/* ---------- Trust ---------- */
-.trust{padding:56px 0}
-.trust-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:40px;align-items:center}
-.awards{display:grid;gap:12px}
-.award{display:flex;gap:14px;align-items:center}
-.award .ic{width:44px;height:44px;border-radius:50%;background:var(--gold-50);color:var(--gold);display:grid;place-items:center;flex-shrink:0}
-.award strong{display:block;color:var(--ink);font-family:var(--head);font-weight:500;font-size:15px}
-.award span{color:var(--muted);font-size:14px}
-.affils{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.affil{border:1px solid var(--line);border-radius:var(--r);padding:14px 12px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;min-height:150px;justify-content:center}
-.affil img{max-height:58px;width:auto}
-.affil .ph{width:58px;height:58px;border-radius:50%;background:var(--brand-50);color:var(--brand);display:grid;place-items:center;font-family:var(--head);font-weight:600;font-size:13px}
-.affil span{font-size:13px;line-height:1.35;color:var(--text)}
-
-/* ---------- Footer ---------- */
-footer.site{background:var(--brand-950);color:#A9C7B3;font-size:15px}
-.f-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding:56px 0 40px}
-.f-top h4{color:#fff;font-size:15px;font-weight:500;margin-bottom:14px}
-.f-top ul{list-style:none;margin:0;padding:0}
-.f-top li{margin-bottom:7px}
-.f-top a{color:#A9C7B3}
-.f-top a:hover{color:#fff}
-.f-brand{background:#fff;border-radius:8px;padding:8px 10px;display:inline-block;margin-bottom:16px}
-.f-brand img{height:64px;width:auto;max-width:100%}
-.f-contact{display:grid;gap:8px}
-.f-contact div{display:flex;gap:10px}
-.f-contact svg.i{width:17px;height:17px;margin-top:4px;color:#7FB892}
-.f-reg{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;padding-bottom:18px;display:flex;gap:28px;flex-wrap:wrap;font-size:13.5px}
-.f-reg span b{color:#D9EADF;font-weight:600}
-.f-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:16px;padding-bottom:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px;color:#7FA08A}
-
-.to-top{position:fixed;right:18px;bottom:18px;z-index:70;width:44px;height:44px;border-radius:10px;border:0;background:var(--brand);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s}
-.to-top.show{opacity:1;pointer-events:auto}
-
-/* ---------- Product modal ---------- */
-dialog.pm{border:0;border-radius:var(--r-lg);padding:0;width:min(860px,94vw);max-height:90vh;box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
-dialog.pm::backdrop{background:rgba(3,40,22,.6)}
-.pm-in{display:grid;grid-template-columns:1fr 300px;max-height:90vh}
-.pm-body{padding:28px 30px;overflow:auto}
-.pm-body .k{color:var(--muted);font-size:14px}
-.pm-body h3{font-size:26px;margin-top:2px}
-.pm-body .ne{color:var(--muted);font-size:17px}
-.pm-rate{display:flex;align-items:baseline;gap:8px;margin:18px 0;padding:14px 18px;border-radius:var(--r);background:var(--brand-50)}
-.pm-rate strong{font-family:var(--head);font-size:34px;color:var(--brand-900);font-weight:600;line-height:1}
-.pm-body ul{list-style:none;margin:0;padding:0}
-.pm-body li{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
-.pm-body li svg.i{color:var(--brand);margin-top:3px;width:18px;height:18px}
-.pm-body .acts{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
-.pm-leaf{background:var(--bg);overflow:auto;border-left:1px solid var(--line)}
-.pm-leaf img{width:100%}
-.pm-close{position:absolute;top:12px;right:12px;z-index:2}
-
-/* ---------- Motion ---------- */
-:root{--ease:cubic-bezier(.2,.7,.2,1)}
-/* scroll reveal (only when JS adds .motion, so content never hides without it) */
-.motion [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .65s var(--ease) var(--d,0ms),transform .65s var(--ease) var(--d,0ms)}
-.motion [data-reveal].in{opacity:1;transform:none}
-/* section titles draw the brand double rule */
-.sec-head h2::after{content:"";display:block;width:56px;height:6px;margin-top:12px;background:linear-gradient(var(--brand-600) 0 3px,var(--red) 3px 6px);transform-origin:left;transition:transform .8s var(--ease) .25s}
-.motion .sec-head:not(.in) h2::after{transform:scaleX(0)}
-/* hero: text rises in, photo slowly zooms, red stripe slides */
-@keyframes heroIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes kenburns{from{transform:scale(1.12)}to{transform:scale(1)}}
-@keyframes stripeIn{from{transform:translateX(-40px);opacity:0}to{transform:none;opacity:1}}
-.slide.on .slide-text > *{animation:heroIn .8s var(--ease) both}
-.slide.on .slide-text > :nth-child(2){animation-delay:.12s}
-.slide.on .slide-text > :nth-child(3){animation-delay:.24s}
-.slide.on .slide-text > :nth-child(4){animation-delay:.36s}
-.slide.on .slide-media img{animation:kenburns 7.5s ease-out both}
-.slide.on .slide-media::before{animation:stripeIn .9s var(--ease) .1s both}
-/* mega menu + modal open */
-@keyframes menuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
-nav.mega > ul > li.open .panel-m{animation:menuIn .25s var(--ease)}
-@keyframes pmIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-dialog.pm[open]{animation:pmIn .3s var(--ease)}
-dialog.pm[open]::backdrop{animation:fadeIn .3s ease}
-/* tab swaps (products, rate board) */
-@keyframes swapIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.swap > *{animation:swapIn .45s var(--ease) both;animation-delay:calc(var(--i,0) * 45ms)}
-/* notice bell rings every few seconds */
-@keyframes ring{0%,100%{transform:rotate(0)}4%{transform:rotate(16deg)}8%{transform:rotate(-14deg)}12%{transform:rotate(10deg)}16%{transform:rotate(-6deg)}20%{transform:rotate(0)}}
-.ticker .chip svg.i{animation:ring 4s ease-in-out 1s infinite;transform-origin:50% 10%}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(208,18,43,.45)}70%{box-shadow:0 0 0 7px rgba(208,18,43,0)}100%{box-shadow:0 0 0 0 rgba(208,18,43,0)}}
-.badge-new{animation:pulse 2.2s infinite}
-/* hover feedback */
-.pcard{transition:box-shadow .25s,border-color .25s,transform .25s var(--ease)}
-.pcard:hover{transform:translateY(-5px)}
-.pcard .ph img{transition:transform .7s var(--ease)}
-.pcard:hover .ph img{transform:scale(1.07)}
-.quick .ic{transition:background .2s,color .2s,transform .3s var(--ease)}
-.quick a:hover .ic{transform:translateY(-4px)}
-.benefit{transition:border-color .25s,box-shadow .25s,transform .25s var(--ease)}
-.benefit:hover{border-color:var(--brand-100);box-shadow:var(--shadow);transform:translateY(-4px)}
-.benefit .ic{transition:background .2s,color .2s}
-.benefit:hover .ic{background:var(--brand);color:#fff}
-.affil{transition:border-color .25s,transform .25s var(--ease),box-shadow .25s}
-.affil:hover{border-color:var(--brand-100);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
-.affil img{filter:grayscale(1);opacity:.75;transition:filter .3s,opacity .3s}
-.affil:hover img{filter:none;opacity:1}
-.leader img{transition:transform .5s var(--ease)}
-.leader:hover img{transform:scale(1.03)}
-.sec-head .link svg.i{transition:transform .2s}
-.sec-head .link:hover svg.i{transform:translateX(4px)}
-.btn{transition:background .15s,border-color .15s,color .15s,transform .2s var(--ease),box-shadow .2s}
-.btn-primary:hover,.btn-light:hover{transform:translateY(-1px);box-shadow:0 6px 16px -6px rgba(10,107,59,.55)}
-.loc-list button{transition:background .2s,border-color .2s}
-.nlist a,.news a,.dlist a{transition:color .2s}
-.news img{transition:transform .4s var(--ease)}
-.news a:hover img{transform:scale(1.05)}
-.dlist a:hover .dl{animation:bob .6s ease}
-@keyframes bob{50%{transform:translateY(3px)}}
-/* scroll progress under the menu bar */
-.progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--gold);transform-origin:left;transform:scaleX(var(--p,0));z-index:2;pointer-events:none}
-.to-top{transform:translateY(14px);transition:opacity .25s,transform .3s var(--ease)}
-.to-top.show{transform:none}
-
-/* ---------- Responsive ---------- */
-@media (max-width:1180px){
-  .h-mail{display:none}
-  nav.mega{display:none}
-  .menu-btn{display:flex}
-  nav.mega.open{display:block;position:absolute;left:0;right:0;top:100%;background:#fff;overflow:auto;height:auto;max-height:calc(100vh - 60px);padding:8px 20px 40px;box-shadow:0 20px 30px -20px rgba(0,0,0,.3)}
-  nav.mega.open > ul{flex-direction:column;height:auto}
-  nav.mega.open > ul > li{flex-direction:column}
-  nav.mega.open .top-link,nav.mega.open > ul > li.open .top-link,nav.mega.open > ul > li:hover .top-link{margin:0;padding:14px 0;justify-content:space-between;width:100%;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink);background:none}
-  nav.mega.open .top-link::after{display:none}
-  nav.mega.open .panel-m{position:static;box-shadow:none;border:0}
-  nav.mega.open .panel-m .wrap{grid-template-columns:1fr;gap:16px;padding:12px 0 18px}
-  nav.mega.open .m-promo{display:none}
-}
-@media (max-width:1100px){
-  .g-bar{flex-direction:column}
-  .g-lead{flex-direction:row;align-items:center;justify-content:space-between;gap:6px 16px;padding:12px 20px}
-}
-@media (max-width:1024px){
-  .pgrid{grid-template-columns:repeat(2,1fr)}
-  .re-grid,.lgrid{grid-template-columns:1fr}
-  .ugrid{grid-template-columns:1fr 1fr}
-  .ugrid .ucol:last-child{grid-column:1/-1}
-  .quick ul{grid-template-columns:repeat(3,1fr)}
-  .quick li:nth-child(4){border-left:0}
-  .quick li:nth-child(n+4){border-top:1px solid var(--line)}
-  .trust-grid{grid-template-columns:1fr}
-  .f-top{grid-template-columns:1fr 1fr}
-}
-@media (max-width:860px){
-  section{padding:60px 0}
-  .u-links a{display:none}
-  .h-call{display:none}
-  .slides{height:auto;display:grid}
-  .slide{position:relative;grid-area:1/1;grid-template-columns:1fr;grid-template-rows:220px auto}
-  .slide-media{grid-row:1;margin:0;clip-path:none}
-  .slide-media::before{display:none}
-  .slide-media .credit{bottom:10px}
-  .slide-text{grid-row:2;padding:28px 20px 90px}
-  .g-item{flex:0 0 auto}
-  .bgrid{grid-template-columns:1fr 1fr}
-  .loc-grid{grid-template-columns:1fr}
-  .loc-list{border-right:0;border-bottom:1px solid var(--line);max-height:none}
-  .affils{grid-template-columns:repeat(3,1fr)}
-  .pm-in{grid-template-columns:1fr}
-  .pm-leaf{max-height:300px;border-left:0;border-top:1px solid var(--line)}
-}
-@media (max-width:620px){
-  body{font-size:16px}
-  .wrap{padding:0 16px}
-  :root{--hb:78px}
-  .u-contact{display:none}
-  .h-meta{display:none}
-  .brand{width:100%}
-  .brand img{width:100%;height:auto;max-height:60px}
-  .nav-call{display:flex}
-  .nav-search span{display:none}
-  .ticker .all,.ticker-nav{display:none}
-  .hero-tabs [role=tab]:not(.hero-pause){font-size:0;padding:10px}
-  .hero-tabs [role=tab]:not(.hero-pause)::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:currentColor;margin:auto}
-  .quick ul{grid-template-columns:repeat(2,1fr)}
-  .quick li:nth-child(n){border-left:0;border-top:1px solid var(--line)}
-  .quick li:nth-child(-n+2){border-top:0}
-  .quick li:nth-child(even){border-left:1px solid var(--line)}
-  .pgrid,.ugrid,.bgrid,.officers{grid-template-columns:1fr}
-  section.figures{padding:24px 0}
-  .g-lead{flex-wrap:wrap}
-  .g-item{flex:0 0 46%}
-  .leader{grid-template-columns:1fr;padding:22px}
-  .leader img{width:96px;height:110px}
-  .rtable th,.rtable td{padding-left:16px;padding-right:16px}
-  .affils{grid-template-columns:repeat(2,1fr)}
-  .f-top{grid-template-columns:1fr}
-  .emi-out .main strong{font-size:28px}
-  .numin{width:150px}
-}
-/* Reduced motion: set on <html> by the head script from prefers-reduced-motion (?motion=on overrides for previewing) */
-html.reduce-motion{scroll-behavior:auto}
-.reduce-motion *,.reduce-motion *::before,.reduce-motion *::after{transition:none!important;animation:none!important}
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
 <!-- Icon sprite -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<!-- @sprite --><svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-user-plus" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7M19 8v6M16 11h6"/></symbol>
   <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 10v.01M18 14v.01"/></symbol>
   <symbol id="i-percent" viewBox="0 0 24 24"><path d="M19 5L5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
@@ -610,8 +61,9 @@ html.reduce-motion{scroll-behavior:auto}
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
   <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M12 8v4M12 15.5v.5"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-</svg>
+</svg><!-- /@sprite -->
 
+<!-- @chrome -->
 <div class="demo-strip" role="note" style="background:#16202A;color:#fff;text-align:center;font:500 13.5px/1.45 system-ui,sans-serif;padding:7px 12px">Design demo, not the official BUSA website. For real services visit <a href="https://budol.coop.np" style="color:#FFD27A;text-decoration:underline">budol.coop.np</a></div>
 
 <!-- ============ Utility bar ============ -->
@@ -621,11 +73,11 @@ html.reduce-motion{scroll-behavior:auto}
       <span><svg class="i"><use href="#i-pin"/></svg><span data-ne="मुख्य कार्यालय: बनेपा-६, बुडोल, काभ्रेपलाञ्चोक">Head office: Banepa-6, Budol, Kavrepalanchok</span></span>
     </div>
     <div class="u-links">
-      <a href="#rates" data-ne="ब्याजदर">Interest rates</a>
-      <a href="#updates" data-ne="सूचना">Notices</a>
-      <a href="#updates" data-ne="डाउनलोड">Downloads</a>
-      <a href="https://budol.coop.np/job-application-form" data-ne="करियर">Careers</a>
-      <a href="#officers" data-feedback="complaint" data-ne="गुनासो">Grievance</a>
+      <a href="products/savings.html" data-ne="ब्याजदर">Interest rates</a>
+      <a href="media/news.html" data-ne="सूचना">Notices</a>
+      <a href="downloads.html" data-ne="डाउनलोड">Downloads</a>
+      <a href="careers.html" data-ne="करियर">Careers</a>
+      <a href="contact.html#officers" data-feedback="complaint" data-ne="गुनासो">Grievance</a>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" aria-pressed="true" data-lang="en">EN</button>
         <button type="button" aria-pressed="false" data-lang="ne">ने</button>
@@ -637,11 +89,11 @@ html.reduce-motion{scroll-behavior:auto}
 <!-- ============ Header + mega menu ============ -->
 <header class="site" id="siteHeader">
   <div class="wrap hbar">
-    <a class="brand" href="#top" aria-label="Budol Samudayik SACCOS home"><img src="https://budol.coop.np/wp-content/themes/busa/images/logo.jpg" alt="Budol Samudayik Saving and Credit Co-operative Society Ltd."></a>
+    <a class="brand" href="index.html" aria-label="Budol Samudayik SACCOS home"><img src="https://budol.coop.np/wp-content/themes/busa/images/logo.jpg" alt="Budol Samudayik Saving and Credit Co-operative Society Ltd."></a>
     <div class="h-meta">
       <a class="h-call" href="tel:011660564"><span class="ic"><svg class="i"><use href="#i-phone"/></svg></span><span><small data-ne="फोन गर्नुहोस्">Call us</small><b>011-660564</b></span></a>
       <a class="h-call h-mail" href="mailto:info@budol.coop.np"><span class="ic"><svg class="i"><use href="#i-mail"/></svg></span><span><small data-ne="इमेल गर्नुहोस्">Email us</small><b>info@budol.coop.np</b></span></a>
-      <a class="btn btn-primary" href="https://budol.coop.np/membership-form" data-ne="खाता खोल्नुहोस्">Open an account</a>
+      <a class="btn btn-primary" href="downloads.html#forms" data-ne="खाता खोल्नुहोस्">Open an account</a>
     </div>
   </div>
   <div class="navrow">
@@ -654,22 +106,23 @@ html.reduce-motion{scroll-behavior:auto}
           <button class="top-link" type="button" aria-expanded="false"><span data-ne="हाम्रो बारेमा">About us</span><svg class="i"><use href="#i-down"/></svg></button>
           <div class="panel-m"><div class="wrap">
             <div><h4 data-ne="संस्था">The cooperative</h4><ul>
-              <li><a href="https://budol.coop.np/introduction">Introduction</a></li>
-              <li><a href="https://budol.coop.np/about-us/vision">Vision and mission</a></li>
-              <li><a href="https://budol.coop.np/objectives">Objectives</a></li>
-              <li><a href="https://budol.coop.np/affiliation">Affiliation</a></li>
-              <li><a href="https://budol.coop.np/voice-of-fdr-chairman">Message from the President</a></li>
+              <li><a href="about/introduction.html">Introduction</a></li>
+              <li><a href="about/vision-mission.html">Vision and mission</a></li>
+              <li><a href="about/objectives.html">Objectives</a></li>
+              <li><a href="about/affiliation.html">Affiliation</a></li>
+              <li><a href="about/message-president.html">Voice of Chairman</a></li>
+              <li><a href="about/message-ceo.html">Commitment From CEO</a></li>
             </ul></div>
             <div><h4 data-ne="व्यवस्थापन">Governance</h4><ul>
-              <li><a href="https://budol.coop.np/bod">Board of directors</a></li>
-              <li><a href="https://budol.coop.np/account-supervisory-committee">Account supervisory committee</a></li>
-              <li><a href="https://budol.coop.np/advisors">Advisors</a></li>
-              <li><a href="https://budol.coop.np/sub-committee">Sub-committees</a></li>
-              <li><a href="https://budol.coop.np/employees">Management team</a></li>
+              <li><a href="team/board.html">Board of directors</a></li>
+              <li><a href="team/supervisory-committee.html">Account supervisory committee</a></li>
+              <li><a href="team/advisors.html">Advisors</a></li>
+              <li><a href="team/sub-committees.html">Sub-committees</a></li>
+              <li><a href="team/management.html">Management team</a></li>
             </ul></div>
             <div><h4 data-ne="पहुँच">Reach</h4><ul>
-              <li><a href="#locator">Service centres</a></li>
-              <li><a href="https://budol.coop.np/job-application-form">Careers</a></li>
+              <li><a href="contact.html">Service centres</a></li>
+              <li><a href="careers.html">Careers</a></li>
               <li><a href="https://www.facebook.com/Budolsamudayik">Facebook</a></li>
             </ul></div>
             <div class="m-promo"><span>Serving Kavrepalanchok since 2057 B.S.</span><strong>19,908</strong><p>members across five service centres</p></div>
@@ -687,19 +140,19 @@ html.reduce-motion{scroll-behavior:auto}
           <button class="top-link" type="button" aria-expanded="false"><span data-ne="सेवा तथा सुविधा">Services</span><svg class="i"><use href="#i-down"/></svg></button>
           <div class="panel-m"><div class="wrap">
             <div><h4>Financial services</h4><ul>
-              <li><a href="https://budol.coop.np/money-transfer-service">Money transfer (remittance)</a></li>
-              <li><a href="https://budol.coop.np/free-accidental-insurance">Free accidental insurance</a></li>
+              <li><a href="services/money-transfer.html">Money transfer (remittance)</a></li>
+              <li><a href="services/free-accidental-insurance.html">Free accidental insurance</a></li>
               <li><a href="#calc">EMI calculator</a></li>
             </ul></div>
             <div><h4>Member welfare</h4><ul>
-              <li><a href="https://budol.coop.np/member-relief-program">Member relief programme</a></li>
-              <li><a href="https://budol.coop.np/member-support-fund-program">Member support fund</a></li>
-              <li><a href="https://budol.coop.np/senior-member-honouring-program">Senior member honouring</a></li>
-              <li><a href="https://budol.coop.np/materanl-mother-visit">Maternal mother visit</a></li>
+              <li><a href="services/member-relief.html">Member relief programme</a></li>
+              <li><a href="services/member-support-fund.html">Member support fund</a></li>
+              <li><a href="services/senior-member-honouring.html">Senior member honouring</a></li>
+              <li><a href="services/maternal-mother-visit.html">Maternal mother visit</a></li>
             </ul></div>
             <div><h4>Education</h4><ul>
-              <li><a href="https://budol.coop.np/slc-honouring-scholarship-program">SLC honouring and scholarship</a></li>
-              <li><a href="https://budol.coop.np/free-copy-pencil-distribution">Free copy and pencil distribution</a></li>
+              <li><a href="services/slc-scholarship.html">SLC honouring and scholarship</a></li>
+              <li><a href="services/free-copy-pencil.html">Free copy and pencil distribution</a></li>
             </ul></div>
             <div class="m-promo"><span>Accident cover for share members</span><strong>Rs 1,00,000</strong><p>Premium paid by BUSA for members aged 16 to 59.</p></div>
           </div></div>
@@ -708,19 +161,19 @@ html.reduce-motion{scroll-behavior:auto}
           <button class="top-link" type="button" aria-expanded="false"><span data-ne="प्रतिवेदन">Reports</span><svg class="i"><use href="#i-down"/></svg></button>
           <div class="panel-m"><div class="wrap">
             <div><h4>Financial reports</h4><ul>
-              <li><a href="https://budol.coop.np/download/annual-reports">Annual reports</a></li>
-              <li><a href="https://budol.coop.np/fy-083-084">Monthly reports, FY 083/84</a></li>
-              <li><a href="https://budol.coop.np/fy-082-083">Monthly reports, FY 082/83</a></li>
+              <li><a href="reports/annual-reports.html">Annual reports</a></li>
+              <li><a href="reports/monthly-reports.html#fy-083-084">Monthly reports, FY 083/84</a></li>
+              <li><a href="reports/monthly-reports.html#fy-082-083">Monthly reports, FY 082/83</a></li>
             </ul></div>
             <div><h4>Publications</h4><ul>
-              <li><a href="https://budol.coop.np/download/busa-darpan">BUSA Darpan</a></li>
-              <li><a href="https://budol.coop.np/download">General assembly decisions</a></li>
-              <li><a href="https://budol.coop.np/specification-for-assets-purchasing">Specification for assets purchasing</a></li>
+              <li><a href="reports/busa-darpan.html">BUSA Darpan</a></li>
+              <li><a href="reports/agm-decisions.html">General assembly decisions</a></li>
+              <li><a href="downloads.html#forms">Specification for assets purchasing</a></li>
             </ul></div>
             <div><h4>Forms</h4><ul>
-              <li><a href="https://budol.coop.np/membership-form">Membership form</a></li>
-              <li><a href="https://budol.coop.np/kym-form">KYM form</a></li>
-              <li><a href="https://budol.coop.np/job-application-form">Job application form</a></li>
+              <li><a href="downloads.html#forms">Membership form</a></li>
+              <li><a href="downloads.html#forms">KYM form</a></li>
+              <li><a href="careers.html">Job application form</a></li>
             </ul></div>
             <div class="m-promo"><span>Total assets, Bhadra 2083</span><strong>Rs 2.36 arba</strong><p>Published every month for members.</p></div>
           </div></div>
@@ -729,18 +182,17 @@ html.reduce-motion{scroll-behavior:auto}
           <button class="top-link" type="button" aria-expanded="false"><span data-ne="मिडिया">Media</span><svg class="i"><use href="#i-down"/></svg></button>
           <div class="panel-m"><div class="wrap">
             <div><h4>News</h4><ul>
-              <li><a href="https://budol.coop.np/news-events">News and events</a></li>
-              <li><a href="https://budol.coop.np/sucess-story">Member success stories</a></li>
+              <li><a href="media/news.html">News and notices</a></li>
+              <li><a href="media/success-stories.html">Member success stories</a></li>
             </ul></div>
             <div><h4>Gallery</h4><ul>
-              <li><a href="https://budol.coop.np/category/photos">Photos</a></li>
-              <li><a href="https://budol.coop.np/category/photos">Videos</a></li>
+              <li><a href="media/gallery.html">Photo gallery</a></li>
             </ul></div>
             <div></div>
             <div class="m-promo"><span>Latest</span><strong style="font-size:20px">27th anniversary celebration</strong><p>Members honoured for their contribution.</p></div>
           </div></div>
         </li>
-        <li><a class="top-link" href="#locator" data-ne="सम्पर्क">Contact</a></li>
+        <li><a class="top-link" href="contact.html" data-ne="सम्पर्क">Contact</a></li>
       </ul>
     </nav>
     <a class="nav-search nav-call" href="tel:011660564" aria-label="Call 011-660564"><svg class="i"><use href="#i-phone"/></svg></a>
@@ -765,9 +217,10 @@ html.reduce-motion{scroll-behavior:auto}
       <button type="button" id="tkPrev" aria-label="Previous notice"><svg class="i"><use href="#i-left"/></svg></button>
       <button type="button" id="tkNext" aria-label="Next notice"><svg class="i"><use href="#i-right"/></svg></button>
     </div>
-    <a class="all" href="#updates" data-ne="सबै सूचना">All notices</a>
+    <a class="all" href="media/news.html" data-ne="सबै सूचना">All notices</a>
   </div>
 </div>
+<!-- /@chrome -->
 
 <main id="top">
 
@@ -777,9 +230,9 @@ html.reduce-motion{scroll-behavior:auto}
     <div class="slide on" role="group" aria-roledescription="slide" aria-label="1 of 5">
       <div class="slide-text">
         <span class="kicker"><svg class="i" style="width:15px;height:15px"><use href="#i-home"/></svg>Home loan</span>
-        <h1>Build or repair your home with BUSA</h1>
-        <p>Borrow up to Rs 3 crore and repay over as long as 20 years, at <span class="rate">10.5%</span> interest.</p>
-        <div class="slide-ctas"><a class="btn btn-light" href="#calc" data-loan="Home loan">Calculate your EMI</a><button class="btn btn-ghost-w" type="button" data-open="Home loan">Loan details</button></div>
+        <h1>Buy, build or repair your home with BUSA</h1>
+        <p>Borrow up to Rs 3 crore and repay over as long as 20 years, at <span class="rate">9.5%</span> interest.</p>
+        <div class="slide-ctas"><a class="btn btn-light" href="#calc" data-loan="home-loan">Calculate your EMI</a><button class="btn btn-ghost-w" type="button" data-open="home-loan">Loan details</button></div>
       </div>
       <div class="slide-media"><img src="assets/home-loan.jpg" alt="A house under construction"></div>
     </div>
@@ -788,7 +241,7 @@ html.reduce-motion{scroll-behavior:auto}
         <span class="kicker"><svg class="i" style="width:15px;height:15px"><use href="#i-coins"/></svg>Regular saving</span>
         <h2>Save every month, earn 3.25% a year</h2>
         <p>Start from Rs 200 a month for women and Rs 300 for men. No account-opening charge, interest added every quarter.</p>
-        <div class="slide-ctas"><a class="btn btn-light" href="https://budol.coop.np/membership-form">Open an account</a><button class="btn btn-ghost-w" type="button" data-open="Regular saving">Saving details</button></div>
+        <div class="slide-ctas"><a class="btn btn-light" href="downloads.html#forms">Open an account</a><button class="btn btn-ghost-w" type="button" data-open="regular-saving">Saving details</button></div>
       </div>
       <div class="slide-media"><img src="assets/regular-saving.jpg" alt="Coins growing beside a clock" loading="lazy" style="object-position:30% 50%"></div>
     </div>
@@ -797,16 +250,16 @@ html.reduce-motion{scroll-behavior:auto}
         <span class="kicker"><svg class="i" style="width:15px;height:15px"><use href="#i-grad"/></svg>Education loan</span>
         <h2>Study in Nepal or abroad</h2>
         <p>Education loans up to Rs 65 lakh at <span class="rate">10%</span>, repaid over as long as 10 years.</p>
-        <div class="slide-ctas"><a class="btn btn-light" href="#calc" data-loan="Education loan">Calculate your EMI</a><button class="btn btn-ghost-w" type="button" data-open="Education loan">Loan details</button></div>
+        <div class="slide-ctas"><a class="btn btn-light" href="#calc" data-loan="education-loan">Calculate your EMI</a><button class="btn btn-ghost-w" type="button" data-open="education-loan">Loan details</button></div>
       </div>
       <div class="slide-media"><img src="assets/education-loan.jpg" alt="A graduate in cap and gown" loading="lazy" style="object-position:50% 25%"></div>
     </div>
     <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
       <div class="slide-text">
         <span class="kicker"><svg class="i" style="width:15px;height:15px"><use href="#i-plane"/></svg>Employment loan</span>
-        <h2>Finance your job in Nepal or abroad</h2>
-        <p>Up to Rs 40 lakh at <span class="rate">9.5%</span> over up to 5 years. Receive remittances at any service centre through 8 partners.</p>
-        <div class="slide-ctas"><a class="btn btn-light" href="#calc" data-loan="Employment loan">Calculate your EMI</a><button class="btn btn-ghost-w" type="button" data-open="Employment loan">Loan details</button></div>
+        <h2>Finance your job abroad</h2>
+        <p>Foreign employment loans at <span class="rate">9.5%</span> over up to 5 years: up to Rs 40 lakh, or Rs 3 lakh for Gulf countries. Receive remittances at any service centre through 8 partners.</p>
+        <div class="slide-ctas"><a class="btn btn-light" href="#calc" data-loan="employment-loan">Calculate your EMI</a><button class="btn btn-ghost-w" type="button" data-open="employment-loan">Loan details</button></div>
       </div>
       <div class="slide-media"><img src="assets/employment-loan.jpg" alt="An aircraft over the Himalaya" loading="lazy"></div>
     </div>
@@ -815,7 +268,7 @@ html.reduce-motion{scroll-behavior:auto}
         <span class="kicker"><svg class="i" style="width:15px;height:15px"><use href="#i-award"/></svg>27th anniversary</span>
         <h2>27 years of serving Kavrepalanchok</h2>
         <p>From six members saving Rs 100 each in 2057 B.S. to 19,908 members and Rs 2.36 arba in assets today.</p>
-        <div class="slide-ctas"><a class="btn btn-light" href="#financials">See our financials</a><a class="btn btn-ghost-w" href="https://budol.coop.np/introduction">Our story</a></div>
+        <div class="slide-ctas"><a class="btn btn-light" href="#financials">See our financials</a><a class="btn btn-ghost-w" href="about/introduction.html">Our story</a></div>
       </div>
       <div class="slide-media"><img src="https://budol.coop.np/wp-content/uploads/2026/04/27th-Anniversary.jpg" alt="Members honoured at the 27th anniversary programme" loading="lazy"></div>
     </div>
@@ -836,12 +289,12 @@ html.reduce-motion{scroll-behavior:auto}
 <div class="quick">
   <div class="wrap">
     <ul>
-      <li><a href="https://budol.coop.np/membership-form"><span class="ic"><svg class="i"><use href="#i-user-plus"/></svg></span><strong data-ne="सदस्य बन्नुहोस्">Become a member</strong><small data-ne="सदस्यता फारम">Membership form</small></a></li>
+      <li><a href="downloads.html#forms"><span class="ic"><svg class="i"><use href="#i-user-plus"/></svg></span><strong data-ne="सदस्य बन्नुहोस्">Become a member</strong><small data-ne="सदस्यता फारम">Membership form</small></a></li>
       <li><a href="#rates" data-q="loan"><span class="ic"><svg class="i"><use href="#i-cash"/></svg></span><strong data-ne="ऋण लिनुहोस्">Apply for a loan</strong><small data-ne="१६ प्रकारका ऋण">16 loan products</small></a></li>
       <li><a href="#rates"><span class="ic"><svg class="i"><use href="#i-percent"/></svg></span><strong data-ne="ब्याजदर">Interest rates</strong><small data-ne="बचत तथा ऋण">Savings and loans</small></a></li>
       <li><a href="#calc"><span class="ic"><svg class="i"><use href="#i-calc"/></svg></span><strong data-ne="EMI क्याल्कुलेटर">EMI calculator</strong><small data-ne="मासिक किस्ता">Plan your instalment</small></a></li>
       <li><a href="#locator"><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span><strong data-ne="सेवा केन्द्र">Locate us</strong><small data-ne="५ सेवा केन्द्र">5 service centres</small></a></li>
-      <li><a href="https://budol.coop.np/money-transfer-service"><span class="ic"><svg class="i"><use href="#i-transfer"/></svg></span><strong data-ne="रेमिट्यान्स">Remittance</strong><small data-ne="८ साझेदार">8 partners</small></a></li>
+      <li><a href="services/money-transfer.html"><span class="ic"><svg class="i"><use href="#i-transfer"/></svg></span><strong data-ne="रेमिट्यान्स">Remittance</strong><small data-ne="८ साझेदार">8 partners</small></a></li>
     </ul>
   </div>
 </div>
@@ -887,7 +340,7 @@ html.reduce-motion{scroll-behavior:auto}
             <tbody id="rateBody"></tbody>
           </table>
         </div>
-        <div class="card-f"><span data-ne="दरहरू परिवर्तन हुन सक्छन्। लागू हुने दरका लागि सेवा केन्द्रमा सोध्नुहोस्।">Rates may change. Ask at any service centre for the rate that applies to you.</span><a href="https://budol.coop.np/download">Rate notices</a></div>
+        <div class="card-f"><span data-ne="दरहरू परिवर्तन हुन सक्छन्। लागू हुने दरका लागि सेवा केन्द्रमा सोध्नुहोस्।">Rates may change. Ask at any service centre for the rate that applies to you.</span><a href="media/news.html">Rate notices</a></div>
       </div>
 
       <div class="card" id="calc">
@@ -928,7 +381,7 @@ html.reduce-motion{scroll-behavior:auto}
       <div class="g-lead">
         <h2 id="fin-title" data-ne="वित्तीय झलक">Financial highlights</h2>
         <span data-ne="२०८३ भदौ ३१ सम्म">As of 31 Bhadra 2083</span>
-        <a href="https://budol.coop.np/fy-083-084" data-ne="मासिक प्रतिवेदन">Monthly report</a>
+        <a href="reports/monthly-reports.html#fy-083-084" data-ne="मासिक प्रतिवेदन">Monthly report</a>
       </div>
       <div class="g-items">
         <div class="g-item" tabindex="0"><span class="flip"><span class="k" data-ne="कुल सम्पत्ति">Total assets</span><span class="x" data-full="2358392923.58"></span></span><span class="val" data-amt="2358392923.58"></span></div>
@@ -950,16 +403,16 @@ html.reduce-motion{scroll-behavior:auto}
         <h2 id="ben-title" data-ne="सदस्य सुविधा">Member benefits</h2>
         <p data-ne="बचत र ऋणका अतिरिक्त सदस्य तथा परिवारलाई संस्थाले दिने सुविधा।">What BUSA provides to members and their families beyond savings and loans.</p>
       </div>
-      <a class="link" href="https://budol.coop.np/member-relief-program"><span data-ne="सबै कार्यक्रम">All programmes</span><svg class="i" style="width:16px;height:16px"><use href="#i-right"/></svg></a>
+      <a class="link" href="services/money-transfer.html"><span data-ne="सबै कार्यक्रम">All programmes</span><svg class="i" style="width:16px;height:16px"><use href="#i-right"/></svg></a>
     </div>
     <div class="bgrid">
-      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-shield"/></svg></span><div class="amt">Rs 1,00,000</div><h3>Free accidental insurance</h3><p>Accidental death cover for share members aged 16 to 59. BUSA pays the yearly premium.</p></div>
-      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-heart"/></svg></span><div class="amt">Rs 30,000</div><h3>Member relief</h3><p>Financial relief for the family when a member passes away, delivered within 12 days.</p></div>
-      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-grad"/></svg></span><div class="amt">Rs 5,000</div><h3>SLC scholarship</h3><p>All child members who pass SLC are honoured; the top four students receive scholarships.</p></div>
-      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-gift"/></svg></span><div class="amt">75+ years</div><h3>Senior member honouring</h3><p>Members over 75 honoured on International Senior Citizens Day, every year since 2061.</p></div>
-      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-child"/></svg></span><div class="amt">Rs 1,000</div><h3>Maternal mother visit</h3><p>A visit to mother and newborn within 11 days of birth, with a gift for the mother.</p></div>
-      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-transfer"/></svg></span><div class="amt">8 partners</div><h3>Money transfer</h3><p>Receive remittances at any service centre.</p>
-        <div class="partners"><span>IME</span><span>Prabhu</span><span>Western Union</span><span>Himal Remit</span><span>Xpress Money</span><span>EzRemit</span><span>MoneyGram</span><span>Boom Remit</span></div></div>
+      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-shield"/></svg></span><div class="amt">Nrs 1,00,000</div><h3><a href="services/free-accidental-insurance.html" style="color:inherit">Free accidental insurance</a></h3><p>SACCOS has been providing free accidental insurance service to the share members between the age group of 16-59 years. SACCOS pays the yearly premium of the members to the Insurance company for this service.</p></div>
+      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-heart"/></svg></span><div class="amt">Nrs 30,000</div><h3><a href="services/member-relief.html" style="color:inherit">Member relief program</a></h3><p>It is a program by which SACCOS is providing relief support &amp; sympathy to the nominee or family members in the death of the members’. For Participating in this program members should pay Nrs 1,800 for one time.</p></div>
+      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-grad"/></svg></span><div class="amt">Nrs 5,000</div><h3><a href="services/slc-scholarship.html" style="color:inherit">SLC honouring &amp; scholarship program</a></h3><p>Budol Samudayik has been honouring all the child members who pass the School Level Certificate (SLC) every year. Also SACCOS Provides Cash Scholarship of NRS 5000 each for top 4 members.</p></div>
+      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-gift"/></svg></span><div class="amt">75+ years</div><h3><a href="services/senior-member-honouring.html" style="color:inherit">Senior member honouring program</a></h3><p>SACCOS has been honouring the Elder members above 75 years of age on the occasion of international senior citizens day. SACCOS honour them by giving money and different useful goods, feeding them, arranging Bhajans for their recreation etc.</p></div>
+      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-child"/></svg></span><div class="amt">Nrs 1,000</div><h3><a href="services/maternal-mother-visit.html" style="color:inherit">Maternal mother visit</a></h3><p>Representatives from the Socio–Cultural sub committee visit the maternal mother &amp; the child within 11 days of the birth of the child. Nrs 1000.00 is provided to the mother (member); in the case of caesarean delivery Nrs. 5000.00 is also provided.</p></div>
+      <div class="benefit"><span class="ic"><svg class="i"><use href="#i-transfer"/></svg></span><div class="amt">8 partners</div><h3><a href="services/money-transfer.html" style="color:inherit">Money transfer service</a></h3><p>Budol Samudayik SACCOS has been providing money transfer service to the community people being the agent &amp; sub agent of different remittance companies.</p>
+        <div class="partners"><span>IME Money Transfer</span><span>Prabhu Money Transfer</span><span>Western Union Money Transfer</span><span>Himal Remit</span><span>Xpress Money Transfer</span><span>EzRemit</span><span>Money gram</span><span>Boom Remit</span></div></div>
     </div>
   </div>
 </section>
@@ -970,27 +423,27 @@ html.reduce-motion{scroll-behavior:auto}
     <div class="sec-head"><div><h2 id="up-title" data-ne="सूचना, समाचार र डाउनलोड">Notices, news and downloads</h2></div></div>
     <div class="ugrid">
       <div class="card ucol">
-        <div class="card-h"><h3><svg class="i"><use href="#i-bell"/></svg><span data-ne="सूचना">Notices</span></h3><a href="https://budol.coop.np/news-events" data-ne="सबै हेर्नुहोस्">View all</a></div>
+        <div class="card-h"><h3><svg class="i"><use href="#i-bell"/></svg><span data-ne="सूचना">Notices</span></h3><a href="media/news.html" data-ne="सबै हेर्नुहोस्">View all</a></div>
         <ul class="nlist" id="noticeList"></ul>
       </div>
       <div class="card ucol">
-        <div class="card-h"><h3><svg class="i"><use href="#i-file"/></svg><span data-ne="समाचार तथा गतिविधि">News and events</span></h3><a href="https://budol.coop.np/news-events" data-ne="सबै हेर्नुहोस्">View all</a></div>
+        <div class="card-h"><h3><svg class="i"><use href="#i-file"/></svg><span data-ne="समाचार तथा गतिविधि">News and events</span></h3><a href="media/gallery.html" data-ne="सबै हेर्नुहोस्">View all</a></div>
         <ul class="news">
-          <li><a href="https://budol.coop.np/news-events"><img src="https://budol.coop.np/wp-content/uploads/2026/04/27th-Anniversary-1.jpg" alt="" loading="lazy"><div><div class="t">27th anniversary celebration</div><div class="m">Baisakh 2083</div></div></a></li>
-          <li><a href="https://budol.coop.np/news-events"><img src="https://budol.coop.np/wp-content/uploads/2026/04/Bidhyalayamaa-busa.jpg" alt="" loading="lazy"><div><div class="t">"BUSA in schools" financial literacy programme</div><div class="m">Sanjivani Namuna Secondary School</div></div></a></li>
-          <li><a href="https://budol.coop.np/news-events"><img src="https://budol.coop.np/wp-content/uploads/2025/11/nefscun-samman-2082-website.jpg" alt="" loading="lazy"><div><div class="t">Honoured by NEFSCUN</div><div class="m">2082</div></div></a></li>
-          <li><a href="https://budol.coop.np/sucess-story"><img src="https://budol.coop.np/wp-content/uploads/2025/02/Dor-bahadur-150x150.jpg" alt="" loading="lazy" style="object-position:center 30%"><div><div class="t">परिश्रमी हातका कथा</div><div class="m">Member success story</div></div></a></li>
+          <li><a href="media/stories/story-1.html"><img src="https://budol.coop.np/wp-content/uploads/2025/02/Dor-bahadur-150x150.jpg" alt="" loading="lazy" style="object-position:center 30%"><div><div class="t">परिश्रमी हातका कथा</div><div class="m">Success story, 20 Feb 2025</div></div></a></li>
+          <li><a href="media/stories/story-2.html"><img src="https://budol.coop.np/wp-content/uploads/2020/07/bulletin-1st-edition.jpg" alt="" loading="lazy"><div><div class="t">चिया पसलदेखि सवारी व्यवसायसम्मको यात्रा</div><div class="m">Success story, 3 Jul 2020</div></div></a></li>
+          <li><a href="media/gallery/8th-access-review-program.html"><img src="https://budol.coop.np/wp-content/gallery/8th-access-review-program/thumbs/thumbs_IMG_3374.JPG" alt="" loading="lazy"><div><div class="t">8th Access Review Program</div><div class="m">Photos, 26 Jun 2015</div></div></a></li>
+          <li><a href="media/gallery/accidental-insurance-payment-program.html"><img src="https://budol.coop.np/wp-content/gallery/accidental-insurance-payment-program/thumbs/thumbs_IMG_3324.jpg" alt="" loading="lazy"><div><div class="t">Accidental Insurance Payment Program</div><div class="m">Photos, 19 Jun 2015</div></div></a></li>
         </ul>
       </div>
       <div class="card ucol">
-        <div class="card-h"><h3><svg class="i"><use href="#i-download"/></svg><span data-ne="डाउनलोड">Downloads</span></h3><a href="https://budol.coop.np/download" data-ne="सबै हेर्नुहोस्">View all</a></div>
+        <div class="card-h"><h3><svg class="i"><use href="#i-download"/></svg><span data-ne="डाउनलोड">Downloads</span></h3><a href="downloads.html" data-ne="सबै हेर्नुहोस्">View all</a></div>
         <ul class="dlist">
-          <li><a href="https://budol.coop.np/fy-083-084"><span class="fi"><svg class="i"><use href="#i-chart"/></svg></span><span>Monthly report<small>Bhadra 2083</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
-          <li><a href="https://budol.coop.np/download/annual-reports"><span class="fi"><svg class="i"><use href="#i-file"/></svg></span><span>Annual reports<small>All fiscal years</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
-          <li><a href="https://budol.coop.np/download/busa-darpan"><span class="fi"><svg class="i"><use href="#i-book"/></svg></span><span>BUSA Darpan<small>Newsletter</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
-          <li><a href="https://budol.coop.np/membership-form"><span class="fi"><svg class="i"><use href="#i-user-plus"/></svg></span><span>Membership form<small>For new members</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
-          <li><a href="https://budol.coop.np/kym-form"><span class="fi"><svg class="i"><use href="#i-file"/></svg></span><span>KYM form<small>Know your member</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
-          <li><a href="https://budol.coop.np/download"><span class="fi"><svg class="i"><use href="#i-users"/></svg></span><span>साधारण सभाका निर्णयहरु<small>General assembly decisions</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
+          <li><a href="reports/monthly-reports.html#fy-083-084"><span class="fi"><svg class="i"><use href="#i-chart"/></svg></span><span>Monthly Report 083/084<small>Bhadra Month</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
+          <li><a href="https://budol.coop.np/wp-content/uploads/2026/10/BUSA-Annual-Report-book-FY-082-083.pdf" target="_blank" rel="noopener"><span class="fi"><svg class="i"><use href="#i-file"/></svg></span><span>Annual Report 082-083<small>PDF</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
+          <li><a href="https://budol.coop.np/wp-content/uploads/2025/01/bulletin-13th-Edd.pdf" target="_blank" rel="noopener"><span class="fi"><svg class="i"><use href="#i-book"/></svg></span><span>Busa Darpan 13th Edition<small>PDF</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
+          <li><a href="https://budol.coop.np/wp-content/uploads/2024/07/Annex-1-Membership-Form.pdf" target="_blank" rel="noopener"><span class="fi"><svg class="i"><use href="#i-user-plus"/></svg></span><span>Membership Form<small>PDF</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
+          <li><a href="https://budol.coop.np/wp-content/uploads/2024/09/KYM-Form-updated-2081-with-annex.pdf" target="_blank" rel="noopener"><span class="fi"><svg class="i"><use href="#i-file"/></svg></span><span>KYM Form<small>PDF</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
+          <li><a href="https://budol.coop.np/wp-content/uploads/2023/12/24-th-AGM-Decision-Final-PDF.pdf" target="_blank" rel="noopener"><span class="fi"><svg class="i"><use href="#i-users"/></svg></span><span>२४औं साधारण सभाका निर्णयहरु<small>मितिः २०८०।०६।१८</small></span><svg class="i dl"><use href="#i-download"/></svg></a></li>
         </ul>
       </div>
     </div>
@@ -1000,20 +453,20 @@ html.reduce-motion{scroll-behavior:auto}
 <!-- ============ Leadership ============ -->
 <section aria-labelledby="lead-title">
   <div class="wrap">
-    <div class="sec-head"><div><h2 id="lead-title" data-ne="नेतृत्वको सन्देश">Messages from our leadership</h2></div></div>
+    <div class="sec-head"><div><h2 id="lead-title" data-ne="अध्यक्षको मन्तव्य र ब्यवस्थापकको प्रतिवद्धता">Voice of Chairman and Commitment From CEO</h2></div></div>
     <div class="lgrid">
       <article class="leader">
         <img src="https://budol.coop.np/wp-content/uploads/2024/10/Kailash-KC.jpg" alt="Kailash K.C." loading="lazy">
         <div>
-          <blockquote>The cooperative has been established as a strong and secure financial institution within the cooperative act and rules. In the days ahead, our efforts will continue towards more efficient and technology-friendly services.</blockquote>
-          <footer><cite>Kailash K.C.</cite><span class="role">President, Board of Directors</span><br><a href="https://budol.coop.np/voice-of-fdr-chairman">Read full message</a></footer>
+          <blockquote data-ne="बुडोल सामुदायिक साकोस सहकारीको सिद्धान्त र मूल्यमान्यता अनुरुप समुदायमा आधारित भई संचालनमा रहेको प्रारम्भिक सहकारी संस्था हो । यस संस्था तत्कालिन अवस्थामा नियमित बचतका माध्यमबाट समुदायमा छरिएर रहेको पूँजीलाई संकलन गरी सदस्यहरुको वित्तीय आवश्यकता पूरा गर्न सहयोग गर्ने उदेश्यका साथ शुरुवात भएको थियो ।">Budol Samudayik SACCOS is a primary co-operative institution established and operated in the community as per the governing principles and norms of cooperatives. The commencement of this institution was made with the noble objective of collecting scattered capital in the community with the help of regular saving and assisting its members in fulfilling their financial necessities.</blockquote>
+          <footer><cite>Kailash K.C.</cite><span class="role">President</span><br><a href="about/message-president.html" data-ne="पूरा मन्तव्य पढ्नुहोस्">Read full message</a></footer>
         </div>
       </article>
       <article class="leader">
         <img src="https://budol.coop.np/wp-content/uploads/2025/09/Bivek-sir-new.jpg" alt="Bivek Raj Thakuri" loading="lazy">
         <div>
-          <blockquote>We have developed an efficient management system that puts members' satisfaction and quality service first. Our whole team is committed to the needs of every member.</blockquote>
-          <footer><cite>Bivek Raj Thakuri</cite><span class="role">Chief Executive Officer</span><br><a href="https://budol.coop.np/message-from-chairman">Read full message</a></footer>
+          <blockquote data-ne="बुडोल सामुदायिक साकोस लामो समयको विभिन्न आरोह अवरोहहरु पार गर्दै राष्ट्रिय तथा अन्तर्राष्ट्रिय रुपमा समेत पहिचान कायम गर्न सफल भएको छ । यस संस्थाले राष्ट्रिय रुपमा प्राप्त गरेको विभिन्न सम्मान, पुरस्कार र अन्तर्राष्ट्रिय रुपमा प्राप्त गरेको एक्सेस ब्राण्ड सदस्यहरुले संस्थाप्रति गर्नुभएको अगाध स्नेह, विश्वास र योगदानको परिणाम हो ।">Budol Samudayik SACCOS has succeeded to maintain its reputation in national as well as international level overcoming various ups and downs in the course of its operation. The constant affection, trust and contribution of its members towards this institution has resulted it in getting different honors, awards and international ACCESS brand too.</blockquote>
+          <footer><cite>Bivek Raj Thakuri</cite><span class="role">Chief Executive Officer</span><br><a href="about/message-ceo.html" data-ne="पूरा प्रतिवद्धता पढ्नुहोस्">Read full message</a></footer>
         </div>
       </article>
     </div>
@@ -1066,6 +519,7 @@ html.reduce-motion{scroll-behavior:auto}
 
 </main>
 
+<!-- @footer -->
 <!-- ============ Footer ============ -->
 <footer class="site">
   <div class="brand-rule"></div>
@@ -1080,25 +534,25 @@ html.reduce-motion{scroll-behavior:auto}
         </div>
       </div>
       <div><h4 data-ne="छिटो लिंक">Quick links</h4><ul>
-        <li><a href="https://budol.coop.np/introduction">About BUSA</a></li>
-        <li><a href="https://budol.coop.np/bod">Board of directors</a></li>
-        <li><a href="https://budol.coop.np/employees">Management team</a></li>
-        <li><a href="#locator">Service centres</a></li>
-        <li><a href="https://budol.coop.np/job-application-form">Careers</a></li>
+        <li><a href="about/introduction.html">About BUSA</a></li>
+        <li><a href="team/board.html">Board of directors</a></li>
+        <li><a href="team/management.html">Management team</a></li>
+        <li><a href="contact.html">Service centres</a></li>
+        <li><a href="careers.html">Careers</a></li>
         <li><a href="#" data-feedback="">Send feedback</a></li>
       </ul></div>
       <div><h4 data-ne="सेवाहरू">Products and services</h4><ul>
-        <li><a href="#rates">Savings products</a></li>
-        <li><a href="#rates">Loan products</a></li>
+        <li><a href="products/savings.html">Savings products</a></li>
+        <li><a href="products/loans.html">Loan products</a></li>
         <li><a href="#calc">EMI calculator</a></li>
-        <li><a href="https://budol.coop.np/money-transfer-service">Money transfer</a></li>
+        <li><a href="services/money-transfer.html">Money transfer</a></li>
         <li><a href="#benefits">Member benefits</a></li>
       </ul></div>
       <div><h4 data-ne="प्रतिवेदन तथा फारम">Reports and forms</h4><ul>
-        <li><a href="https://budol.coop.np/download/annual-reports">Annual reports</a></li>
-        <li><a href="https://budol.coop.np/fy-083-084">Monthly reports</a></li>
-        <li><a href="https://budol.coop.np/membership-form">Membership form</a></li>
-        <li><a href="https://budol.coop.np/kym-form">KYM form</a></li>
+        <li><a href="reports/annual-reports.html">Annual reports</a></li>
+        <li><a href="reports/monthly-reports.html">Monthly reports</a></li>
+        <li><a href="downloads.html#forms">Membership form</a></li>
+        <li><a href="downloads.html#forms">KYM form</a></li>
         <li><a href="https://www.facebook.com/Budolsamudayik">Facebook</a></li>
       </ul></div>
     </div>
@@ -1123,372 +577,10 @@ html.reduce-motion{scroll-behavior:auto}
     <div class="pm-leaf" id="pmLeaf"></div>
   </div>
 </dialog>
+<!-- /@footer -->
 
-<script>
-(() => {
-  const U = 'https://budol.coop.np/wp-content/uploads/';
-  const G = 'https://budol.coop.np/wp-content/gallery/product-leaflet/';
-  const reduce = document.documentElement.classList.contains('reduce-motion');
-  let lang = 'en';
-  const $ = id => document.getElementById(id);
-  const icon = (n, s) => `<svg class="i"${s ? ` style="width:${s}px;height:${s}px"` : ''}><use href="#i-${n}"/></svg>`;
-
-  /* ---------- numbers ---------- */
-  const fInt = new Intl.NumberFormat('en-IN', {maximumFractionDigits: 0});
-  const f2 = new Intl.NumberFormat('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  const DEV = '०१२३४५६७८९';
-  const dev = s => lang === 'ne' ? String(s).replace(/\d/g, d => DEV[d]) : String(s);
-  const num = n => dev(fInt.format(Math.round(n)));
-  const rs = n => (lang === 'ne' ? 'रु. ' : 'Rs ') + num(n);
-  function words(n) {
-    for (const [v, en, ne] of [[1e9, 'arba', 'अर्ब'], [1e7, 'crore', 'करोड'], [1e5, 'lakh', 'लाख']]) if (n >= v) {
-      const x = (n / v).toFixed(2).replace(/\.?0+$/, '');
-      return (lang === 'ne' ? 'रु. ' : 'Rs ') + dev(x) + ' ' + (lang === 'ne' ? ne : en);
-    }
-    return rs(n);
-  }
-
-  /* ---------- products (from budol.coop.np pages and Sept 2026 leaflets) ---------- */
-  const P = [
-    {t:'saving', ic:'coins', en:'Regular saving', ne:'नियमित बचत', rate:'3.25%', img:U+'2026/09/Regular.jpg', photo:'assets/regular-saving.jpg', feat:true, f:['Deposit monthly: from Rs 200 for women, Rs 300 for men','Interest added to your balance every quarter','No account-opening charge']},
-    {t:'saving', ic:'child', en:'Child saving', ne:'बाल बचत (कोपिला)', rate:'3.25%', img:U+'2026/09/Kopila.jpg', f:['Build the saving habit early','Child savers receive free copies and pencils']},
-    {t:'saving', ic:'clock', en:'Daily saving', ne:'दैनिक बचत', rate:'2%', img:U+'2026/09/Daily.jpg', photo:'assets/daily-saving.jpg', feat:true, f:['Deposit Rs 100 or more every day','Interest added every quarter','No account-opening charge']},
-    {t:'saving', ic:'cash', en:'Optional saving', ne:'ऐच्छिक बचत', rate:'2.5%', img:U+'2026/09/Optional.jpg', f:['Open with zero balance','Deposit or withdraw any amount, any time','Late deposit facility','Interest added every quarter']},
-    {t:'saving', ic:'bank', en:'Fixed deposit', ne:'मुद्दती बचत', rate:'2.5–4%', img:U+'2026/09/Fixed.jpg', photo:'assets/fixed-deposit.jpg', feat:true, f:['Open with a minimum of Rs 10,000','Borrow up to 90% of your deposit','Interest added every quarter']},
-    {t:'saving', ic:'award', en:'Jewellery saving', ne:'गहना बचत', rate:'2%', note:'daily basis', img:U+'2026/09/Gahana.jpg', f:['Save towards buying gold or jewellery','Withdraw once your balance buys at least ½ tola of gold']},
-    {t:'saving', ic:'users', en:'Elders saving', ne:'अभिभावक बचत', rate:'4%', img:U+'2026/09/Abibhabak.jpg', feat:true, f:['Regular saving moves here at age 60','Interest added every month','Borrow up to 90% of your balance','Interest delivered home if you cannot visit']},
-    {t:'saving', ic:'grad', en:'Education saving', ne:'शिक्षा बचत', rate:'2%', img:U+'2026/09/Education.jpg', f:['Save for higher studies','Withdraw the full amount for the stated study']},
-    {t:'saving', ic:'users', en:'Social saving', ne:'सामाजिक बचत', rate:'2%', img:U+'2026/09/Social-1.jpg', f:['For government-owned social institutions','Deposit or withdraw any amount, any time']},
-    {t:'saving', ic:'shield', en:'Insurance saving', ne:'बीमा बचत', rate:'2%', img:U+'2026/09/beema-bachat.jpg', f:['Save monthly towards your insurance premium','BUSA pays the premium to the insurer for you']},
-    {t:'saving', ic:'plane', en:'Tourism saving', ne:'पर्यटन बचत', rate:'2%', img:U+'2026/09/TOURISM.jpg', f:[]},
-    {t:'saving', ic:'award', en:'BUSA special saving', ne:'बुसा विशेष बचत', rate:'3%', img:U+'2026/09/Busa-special.jpg', f:[]},
-    {t:'saving', ic:'coins', en:'Akshyakosh saving', ne:'अक्षयकोष बचत', rate:'3%', img:U+'2026/09/Akshyakosh.jpg', f:[]},
-    {t:'saving', ic:'heart', en:'Maternity security saving', ne:'मातृत्व सुरक्षा बचत', rate:null, img:U+'2026/09/matritwa.jpg', f:[]},
-    {t:'saving', ic:'gift', en:'Festival saving', ne:'चाडपर्व बचत', rate:'2%', img:U+'2026/09/Festival.jpg', f:['Save for a festival','Withdraw the full amount 7 days before it']},
-    {t:'saving', ic:'heart', en:'Member relief saving', ne:'सदस्य राहत बचत', rate:null, img:U+'2026/09/sadasya-rahat-bachat.jpg', f:[]},
-    {t:'saving', ic:'cash', en:'Loan recovery saving', ne:'ऋण असुली बचत', rate:null, img:U+'2026/09/Loan-recovery.jpg', f:[]},
-    {t:'saving', ic:'users', en:'Joint optional saving', ne:'संयुक्त ऐच्छिक बचत', rate:null, img:U+'2026/09/joint-optional.jpg', f:[]},
-    {t:'saving', ic:'coins', en:'Khutruke saving', ne:'खुत्रुके बचत', rate:'3%', img:G+'9.Khutruke-saving.jpg', f:['Collect small change','Withdraw the full amount after one year']},
-    {t:'saving', ic:'chart', en:'Share saving', ne:'सेयर बचत', rate:'3%', note:'daily basis', img:G+'share-saving.jpg', f:['Save towards BUSA shares','Moved into shares as the cooperative requires']},
-    {t:'loan', ic:'home', en:'Home loan', ne:'आवास ऋण', rate:'10.5%', r:10.5, max:3e7, yrs:20, img:U+'2026/09/home-loan.jpg', photo:'assets/home-loan.jpg', feat:true, f:['To build or repair a house','Up to Rs 3 crore, based on project and collateral','Repay over up to 20 years']},
-    {t:'loan', ic:'grad', en:'Education loan', ne:'शिक्षा ऋण', rate:'10%', r:10, max:65e5, yrs:10, img:U+'2026/09/education-1.jpg', photo:'assets/education-loan.jpg', feat:true, f:['Study in Nepal or abroad','Up to Rs 65 lakh','Repay over up to 10 years']},
-    {t:'loan', ic:'plane', en:'Employment loan', ne:'रोजगार ऋण', rate:'9.5%', r:9.5, max:4e6, yrs:5, img:U+'2026/09/employment.jpg', photo:'assets/employment-loan.jpg', feat:true, f:['For work in Nepal or abroad','Up to Rs 40 lakh','Repay over up to 5 years']},
-    {t:'loan', ic:'brief', en:'Business loan', ne:'व्यवसायिक ऋण', rate:'9.5%', r:9.5, max:3e7, yrs:15, img:U+'2026/09/Business.jpg', photo:'assets/business-loan.jpg', feat:true, f:['For business and industry','Up to Rs 3 crore, based on project and collateral','Repay over up to 15 years']},
-    {t:'loan', ic:'sprout', en:'Agriculture and livestock loan', ne:'कृषि तथा पशुपंक्षीपालन ऋण', rate:'8.5%', r:8.5, max:3e7, yrs:15, img:U+'2026/09/agriculture-loan.jpg', f:['Vegetables, fruit, flowers, poultry, fish, bees and livestock','Up to Rs 3 crore','Repay over up to 15 years']},
-    {t:'loan', ic:'sprout', en:'Self-employment loan', ne:'स्वरोजगार ऋण', rate:'5.99%', r:5.99, max:3e6, yrs:10, img:U+'2026/06/self-emp-loan.jpg', f:['Farming, livestock, cottage and micro enterprise','Up to Rs 30 lakh','Repay over up to 10 years']},
-    {t:'loan', ic:'heart', en:'Necessity loan', ne:'खर्चखाँचो ऋण', rate:'11.5%', r:11.5, max:15e5, yrs:7, img:U+'2026/09/kharkhacho.jpg', f:['Marriage, treatment, festivals and household needs','Up to Rs 15 lakh','Repay over up to 7 years']},
-    {t:'loan', ic:'users', en:'Microfinance loan', ne:'लघुवित्त ऋण', rate:'11.5%', r:11.5, max:3e5, yrs:3, img:null, f:['Group guarantee through microfinance group meetings','Compulsory life insurance for the borrower','Up to Rs 3 lakh over up to 3 years']},
-    {t:'loan', ic:'cash', en:'Easy loan', ne:'सहज ऋण', rate:'9–10%', img:G+'easy-loan.jpg', f:['Secured against your deposits','Up to your share and saving balance plus Rs 20,000','Repay over up to 5 years']},
-    {t:'loan', ic:'bank', en:'Loan against fixed deposit', ne:'मुद्दती बचत धितो ऋण', rate:'FD + 2%', img:U+'2026/09/againt-FD.jpg', f:['Against your fixed deposit or elders saving','Up to 90% of the deposit','Term follows the deposit']},
-    {t:'loan', ic:'cash', en:'Hire purchase loan', ne:'हायर पर्चेज ऋण', rate:null, img:U+'2026/09/hire-purchase.jpg', f:[]},
-    {t:'loan', ic:'home', en:'Ghaderi purchase loan', ne:'घडेरी खरिद ऋण', rate:null, img:U+'2026/09/ghaderi.jpg', f:[]},
-    {t:'loan', ic:'pin', en:'Land purchase loan', ne:'जग्गा खरिद ऋण', rate:null, img:U+'2026/09/land-purchase.jpg', f:[]},
-    {t:'loan', ic:'user-plus', en:'Personal loan', ne:'व्यक्तिगत ऋण', rate:null, img:U+'2026/09/personal-loan.jpg', f:[]},
-    {t:'loan', ic:'brief', en:'Employee facility loan', ne:'कर्मचारी सुविधा ऋण', rate:null, img:U+'2026/09/emp-facility.jpg', f:[]},
-    {t:'loan', ic:'coins', en:'Monthly saving borrowing', ne:'मासिक बचत सापटी', rate:null, img:U+'2026/09/mpnthly.jpg', f:[]},
-  ];
-  const byName = n => P.findIndex(p => p.en === n);
-  const nm = p => lang === 'ne' ? p.ne : p.en;
-  const alt = p => lang === 'ne' ? p.en : p.ne;
-  const T = {
-    seeLeaflet:['See leaflet','पर्चा हेर्नुहोस्'], pa:['per year','वार्षिक'], details:['Details','विवरण'], open:['Open account','खाता खोल्नुहोस्'], emi:['EMI','EMI'],
-    allSav:['All savings products','सबै बचत उत्पादन'], allLoan:['All loan products','सबै ऋण उत्पादन'], viewRates:['Compare rates','दर तुलना गर्नुहोस्'],
-    allSavP:['Every saving product with its rate, from daily and child saving to fixed deposits.','दैनिक, बाल बचतदेखि मुद्दती बचतसम्म सबै उत्पादन र दर।'],
-    allLoanP:['Every loan product with its rate, from agriculture to housing.','कृषिदेखि आवाससम्म सबै ऋण उत्पादन र दर।'],
-    saving:['Saving product','बचत उत्पादन'], loan:['Loan product','ऋण उत्पादन'], noFeat:['Full terms are in the product leaflet. Ask at any service centre for the current rate.','पूरा विवरण पर्चामा छ। हालको दरका लागि सेवा केन्द्रमा सोध्नुहोस्।'],
-    calc:['Calculate EMI','EMI हिसाब गर्नुहोस्'], apply:['Visit a service centre','सेवा केन्द्रमा जानुहोस्'], yr:['year','वर्ष'], yrs:['years','वर्ष'], none:['No matching product.','मिल्ने उत्पादन भेटिएन।'],
-    pause:['Pause slideshow','स्लाइड रोक्नुहोस्'], play:['Play slideshow','स्लाइड चलाउनुहोस्'],
-  };
-  const t = k => T[k][lang === 'ne' ? 1 : 0];
-  const rateTxt = p => p.rate ? dev(p.rate) : t('seeLeaflet');
-
-  /* ---------- mega menu (savings / loans built from data) ---------- */
-  function buildMenus() {
-    document.querySelectorAll('[data-menu]').forEach(w => {
-      const type = w.dataset.menu, list = P.filter(p => p.t === type), per = Math.ceil(list.length / 3);
-      let html = '';
-      for (let c = 0; c < 3; c++) {
-        html += `<div>${c === 0 ? `<h4>${type === 'saving' ? 'Savings accounts' : 'Loan products'}</h4>` : '<h4>&nbsp;</h4>'}<ul>` +
-          list.slice(c * per, (c + 1) * per).map(p => `<li><a href="#rates" data-open="${p.en}">${nm(p)}<span>${p.rate ? dev(p.rate) : ''}</span></a></li>`).join('') + '</ul></div>';
-      }
-      html += type === 'saving'
-        ? `<div class="m-promo"><span>Elders saving</span><strong>${dev('4%')}</strong><p>Our highest saving rate, for members over 60.</p><a class="btn btn-primary btn-sm" href="#rates" style="align-self:flex-start">${t('viewRates')}</a></div>`
-        : `<div class="m-promo"><span>Plan before you borrow</span><strong>EMI</strong><p>Work out your monthly instalment for any loan.</p><a class="btn btn-primary btn-sm" href="#calc" style="align-self:flex-start">${t('calc')}</a></div>`;
-      w.innerHTML = html;
-    });
-  }
-  const navItems = [...document.querySelectorAll('nav.mega > ul > li')];
-  const closeMenus = except => navItems.forEach(li => { if (li !== except) { li.classList.remove('open'); li.querySelector('button.top-link')?.setAttribute('aria-expanded', false); } });
-  navItems.forEach(li => {
-    const b = li.querySelector('button.top-link'); if (!b) return;
-    b.addEventListener('click', () => { const o = !li.classList.contains('open'); closeMenus(li); li.classList.toggle('open', o); b.setAttribute('aria-expanded', o); });
-    li.addEventListener('mouseenter', () => { if (matchMedia('(min-width:1181px)').matches) { closeMenus(li); li.classList.add('open'); b.setAttribute('aria-expanded', true); } });
-    li.addEventListener('mouseleave', () => { if (matchMedia('(min-width:1181px)').matches) { li.classList.remove('open'); b.setAttribute('aria-expanded', false); } });
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenus(); });
-  document.addEventListener('click', e => {
-    if (!e.target.closest('nav.mega')) closeMenus();
-    if (e.target.closest('.panel-m a')) { closeMenus(); mega.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }
-  });
-  const mega = $('mega'), menuBtn = $('menuBtn');
-  menuBtn.onclick = () => { const o = mega.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); };
-
-  /* ---------- search ---------- */
-  const searchBar = $('searchBar'), siteSearch = $('siteSearch'), searchResults = $('searchResults'), searchBtn = $('searchBtn');
-  const toggleSearch = o => { searchBar.classList.toggle('open', o); searchBtn.setAttribute('aria-expanded', o); if (o) siteSearch.focus(); };
-  searchBtn.onclick = () => toggleSearch(!searchBar.classList.contains('open'));
-  $('searchClose').onclick = () => toggleSearch(false);
-  siteSearch.addEventListener('input', () => {
-    const q = siteSearch.value.trim().toLowerCase();
-    const hits = q ? P.filter(p => (p.en + ' ' + p.ne).toLowerCase().includes(q)).slice(0, 8) : [];
-    searchResults.innerHTML = q && !hits.length ? `<li style="padding:8px 0;color:var(--muted)">${t('none')}</li>` :
-      hits.map(p => `<li><a href="#rates" data-open="${p.en}"><span>${nm(p)} <span style="color:var(--muted)">${alt(p)}</span></span><b>${rateTxt(p)}</b></a></li>`).join('');
-  });
-
-  /* ---------- notice ticker ---------- */
-  const N = [
-    {t:'ज्येष्ठ नागरिक सदस्य सम्मान कार्यक्रम सम्बन्धी सूचना ।', d:'2026-09-21', bs:'5 Asoj 2083', day:'05', mon:'Asoj', img:U+'2026/09/jestha-nagarik-samman-notice-2083-150x150.jpg', isNew:true},
-    {t:'सम्पूर्ण सदस्य तथा सरोकारवालाहरुमा जानकारीको लागि प्रकाशित गरिएको विवरण ।', d:'2026-09-21', bs:'5 Asoj 2083', day:'05', mon:'Asoj', isNew:true},
-    {t:'सेवा शुल्क तथा निवेदन दस्तुर हटाइएको सम्बन्धमा ।', d:'2026-09-19', bs:'3 Asoj 2083', day:'03', mon:'Asoj'},
-  ];
-  const track = $('tickerTrack');
-  track.innerHTML = N.slice(0, 3).map((n, i) => `<div class="ticker-item${i ? '' : ' on'}"><a href="#updates">${n.t}</a><time datetime="${n.d}">${n.bs}</time></div>`).join('');
-  const tItems = [...track.children]; let tk = 0, tkTimer;
-  const tkShow = i => { tItems[tk].classList.remove('on'); tItems[tk].classList.add('out'); const prev = tItems[tk]; setTimeout(() => prev.classList.remove('out'), 520); tk = (i + tItems.length) % tItems.length; tItems[tk].classList.add('on'); };
-  const tkPlay = () => { clearInterval(tkTimer); if (!reduce) tkTimer = setInterval(() => tkShow(tk + 1), 5000); };
-  $('tkPrev').onclick = () => { tkShow(tk - 1); tkPlay(); }; $('tkNext').onclick = () => { tkShow(tk + 1); tkPlay(); };
-  track.addEventListener('mouseenter', () => clearInterval(tkTimer)); track.addEventListener('mouseleave', tkPlay);
-  tkPlay();
-  $('noticeList').innerHTML = N.map(n => `<li><a href="https://budol.coop.np/news-events"><span class="date"><b>${n.mon}</b><span>${n.day}</span></span><span><span class="t">${n.t}</span><span class="m">${n.bs}${n.isNew ? '<span class="badge-new">New</span>' : ''}</span></span></a></li>`).join('');
-
-  /* ---------- hero carousel ---------- */
-  const slides = [...document.querySelectorAll('.slide')], tabs = [...document.querySelectorAll('#heroTabs [role=tab]:not(.hero-pause)')];
-  const hero = document.querySelector('.hero'), pauseBtn = $('heroPause');
-  let cur = 0, timer, playing = !reduce; const DUR = 6500;
-  hero.style.setProperty('--dur', DUR + 'ms');
-  function go(i) {
-    slides[cur].classList.remove('on'); tabs[cur].setAttribute('aria-selected', false);
-    cur = (i + slides.length) % slides.length;
-    slides[cur].classList.add('on'); tabs[cur].setAttribute('aria-selected', true);
-    const bar = tabs[cur].querySelector('.bar'); bar.style.animation = 'none'; bar.offsetWidth; bar.style.animation = '';
-    schedule();
-  }
-  function schedule() { clearTimeout(timer); if (playing) timer = setTimeout(() => go(cur + 1), DUR); }
-  function paintPause() { hero.classList.toggle('paused', !playing); pauseBtn.innerHTML = icon(playing ? 'pause' : 'play'); pauseBtn.setAttribute('aria-label', playing ? t('pause') : t('play')); }
-  tabs.forEach((b, i) => b.onclick = () => go(i));
-  pauseBtn.onclick = () => { playing = !playing; paintPause(); schedule(); };
-  paintPause(); schedule();
-
-  /* ---------- featured products ---------- */
-  let featType = 'saving';
-  function renderFeatured() {
-    const list = P.filter(p => p.t === featType && p.feat).slice(0, 3);
-    const total = P.filter(p => p.t === featType).length;
-    $('featGrid').innerHTML = list.map(p => `
-      <article class="pcard">
-        <div class="ph">${p.photo ? `<img src="${p.photo}" alt="" loading="lazy">` : ''}</div>
-        <div class="bd">
-          <h3>${nm(p)}</h3><div class="ne">${alt(p)}</div>
-          <div class="rate"><strong>${rateTxt(p)}</strong><span>${p.rate ? t('pa') : ''}</span></div>
-          <ul>${p.f.slice(0, 2).map(x => `<li>${icon('check')}<span>${x}</span></li>`).join('')}</ul>
-          <div class="act"><button class="btn btn-outline btn-sm" type="button" data-open="${p.en}">${t('details')}</button>
-          ${p.r ? `<a class="btn btn-primary btn-sm" href="#calc" data-loan="${p.en}">${t('calc')}</a>` : `<a class="btn btn-primary btn-sm" href="https://budol.coop.np/membership-form">${t('open')}</a>`}</div>
-        </div>
-      </article>`).join('') + `
-      <article class="pcard all">
-        <div><h3>${featType === 'saving' ? t('allSav') : t('allLoan')}</h3><p>${featType === 'saving' ? t('allSavP') : t('allLoanP')}</p></div>
-        <div class="count">${dev(total)}</div>
-        <a class="btn btn-light" href="#rates" data-rates="${featType}">${t('viewRates')}</a>
-      </article>`;
-  }
-  document.querySelectorAll('#featTabs button').forEach(b => b.onclick = () => {
-    featType = b.dataset.t; document.querySelectorAll('#featTabs button').forEach(x => x.setAttribute('aria-selected', x === b)); renderFeatured(); swap($('featGrid'));
-  });
-
-  /* ---------- rate board ---------- */
-  let rateType = 'saving';
-  $('nS').textContent = '(' + P.filter(p => p.t === 'saving').length + ')';
-  $('nL').textContent = '(' + P.filter(p => p.t === 'loan').length + ')';
-  function renderRates() {
-    $('rateBody').innerHTML = P.filter(p => p.t === rateType).map(p => `
-      <tr><td><strong>${nm(p)}</strong><span>${alt(p)}${p.note ? ', ' + p.note : ''}</span></td>
-      <td class="r${p.rate ? '' : ' na'}">${p.rate ? dev(p.rate) : t('seeLeaflet')}</td>
-      <td class="d"><button class="linkbtn" type="button" data-open="${p.en}">${t('details')}</button></td></tr>`).join('');
-  }
-  function setRateType(type) { rateType = type; document.querySelectorAll('#rateTabs button').forEach(x => x.setAttribute('aria-selected', x.dataset.t === type)); renderRates(); swap($('rateBody')); }
-  document.querySelectorAll('#rateTabs button').forEach(b => b.onclick = () => setRateType(b.dataset.t));
-
-  /* ---------- EMI calculator ---------- */
-  const cProduct = $('cProduct'), cAmount = $('cAmount'), cYears = $('cYears'), cAmountN = $('cAmountN'), cYearsN = $('cYearsN');
-  const want = {amt: 1000000, yrs: 10};
-  function fillLoans() {
-    const keep = cProduct.value; cProduct.innerHTML = '';
-    P.forEach((p, i) => { if (p.r) cProduct.add(new Option(`${nm(p)}  (${dev(p.rate)})`, i)); });
-    cProduct.value = keep || String(byName('Home loan'));
-  }
-  function sync() {
-    const p = P[+cProduct.value];
-    cAmount.max = p.max; cAmount.min = 50000; cAmount.step = p.max > 5e6 ? 50000 : 10000;
-    cAmount.value = Math.min(p.max, Math.max(50000, want.amt));
-    cYears.max = p.yrs; cYears.value = Math.min(p.yrs, want.yrs);
-    calc();
-  }
-  function calc() {
-    const p = P[+cProduct.value], A = +cAmount.value, n = +cYears.value, r = p.r / 1200, m = n * 12;
-    const emi = A * r * Math.pow(1 + r, m) / (Math.pow(1 + r, m) - 1), tot = emi * m;
-    if (document.activeElement !== cAmountN) cAmountN.value = num(A);
-    if (document.activeElement !== cYearsN) cYearsN.value = dev(n);
-    $('aMin').textContent = rs(50000); $('aMax').textContent = words(p.max);
-    $('yMin').textContent = dev(1) + ' ' + t('yr'); $('yMax').textContent = dev(p.yrs) + ' ' + t('yrs');
-    tween($('oEmi'), emi, rs); tween($('oInt'), tot - A, rs); tween($('oTot'), tot, rs);
-    $('oBarP').style.width = (A / tot * 100) + '%'; $('oBarI').style.width = ((tot - A) / tot * 100) + '%';
-  }
-  const parseNum = s => +String(s).replace(/[०-९]/g, d => DEV.indexOf(d)).replace(/[^\d]/g, '');
-  cProduct.onchange = sync;
-  cAmount.oninput = () => { want.amt = +cAmount.value; calc(); };
-  cYears.oninput = () => { want.yrs = +cYears.value; calc(); };
-  cAmountN.addEventListener('change', () => { want.amt = parseNum(cAmountN.value) || 50000; sync(); cAmountN.value = num(+cAmount.value); });
-  cYearsN.addEventListener('change', () => { want.yrs = parseNum(cYearsN.value) || 1; sync(); cYearsN.value = dev(+cYears.value); });
-
-  /* ---------- product modal ---------- */
-  const pm = $('pm');
-  function openProduct(name) {
-    const p = P[byName(name)]; if (!p) return;
-    $('pmBody').innerHTML = `
-      <div class="k">${p.t === 'loan' ? t('loan') : t('saving')}</div>
-      <h3 id="pmTitle">${nm(p)}</h3><div class="ne">${alt(p)}</div>
-      <div class="pm-rate"><strong>${p.rate ? dev(p.rate) : '—'}</strong><span>${p.rate ? (p.note ? p.note + ', ' : '') + t('pa') : t('seeLeaflet')}</span></div>
-      ${p.f.length ? `<ul>${p.f.map(x => `<li>${icon('check')}<span>${x}</span></li>`).join('')}</ul>` : `<p>${t('noFeat')}</p>`}
-      <div class="acts">${p.r ? `<a class="btn btn-primary" href="#calc" data-loan="${p.en}">${t('calc')}</a>` : `<a class="btn btn-primary" href="https://budol.coop.np/membership-form">${t('open')}</a>`}
-      <a class="btn btn-outline" href="#locator" data-close>${t('apply')}</a></div>`;
-    $('pmLeaf').innerHTML = p.img ? `<img src="${p.img}" alt="${p.en} leaflet" loading="lazy">` : '';
-    pm.querySelector('.pm-in').style.gridTemplateColumns = p.img ? '' : '1fr';
-    pm.showModal();
-  }
-  pm.addEventListener('click', e => { if (e.target === pm) pm.close(); });
-
-  /* delegated actions: data-open (details), data-loan (preset calculator), data-rates (rate tab) */
-  document.addEventListener('click', e => {
-    const o = e.target.closest('[data-open]');
-    if (o) { e.preventDefault(); toggleSearch(false); closeMenus(); openProduct(o.dataset.open); return; }
-    const l = e.target.closest('[data-loan]');
-    if (l) { if (pm.open) pm.close(); cProduct.value = String(byName(l.dataset.loan)); sync(); }
-    const r = e.target.closest('[data-rates]'); if (r) setRateType(r.dataset.rates);
-    const q = e.target.closest('[data-q="loan"]'); if (q) setRateType('loan');
-    if (e.target.closest('[data-close]')) pm.close();
-  });
-
-  /* ---------- financial KPIs with count-up ---------- */
-  function renderKpis(k = 1) {
-    document.querySelectorAll('[data-amt]').forEach(el => el.textContent = words(+el.dataset.amt * k));
-    document.querySelectorAll('[data-full]').forEach(el => el.textContent = (lang === 'ne' ? 'रु. ' : 'Rs ') + dev(f2.format(+el.dataset.full)));
-    document.querySelectorAll('[data-count]').forEach(el => el.textContent = num(+el.dataset.count * k));
-  }
-  renderKpis(1);
-  let counted = false;
-  new IntersectionObserver((es, ob) => es.forEach(e => {
-    if (!e.isIntersecting || counted) return; counted = true; ob.disconnect();
-    if (reduce) return;
-    const t0 = performance.now(), D = 1300;
-    const step = now => { const k = Math.min(1, (now - t0) / D); renderKpis(1 - Math.pow(1 - k, 3)); if (k < 1) requestAnimationFrame(step); };
-    requestAnimationFrame(step);
-  }), {threshold: .3}).observe($('financials'));
-
-  /* ---------- service centre locator ---------- */
-  const C = [
-    {en:'Head office', ne:'मुख्य कार्यालय', a:'Banepa-6, Budol', tel:['011-660564','011-662364'], mail:'info@budol.coop.np', head:'Bivek Raj Thakuri, CEO',
-     map:'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4224.470432180118!2d85.53133082404918!3d27.628453509255024!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa1b3c21c95c50b6e!2sBudol%20Samudayik%20SACCOS!5e1!3m2!1sen!2snp!4v1671339444035!5m2!1sen!2snp'},
-    {en:'Tukucha Jagaran service centre', ne:'टुकुचा जागरण सेवा केन्द्र', a:'Banepa-4, Nala', tel:['011-411192'], mail:'nalasc@budol.coop.np', head:'Ashok Khatri, centre head', q:'Nala, Banepa, Kavrepalanchok'},
-    {en:'Dhulikhel service centre', ne:'धुलिखेल सेवा केन्द्र', a:'Dhulikhel-3, Bus Park', tel:['011-490466'], mail:'dhksc@budol.coop.np', q:'Dhulikhel Bus Park, Kavrepalanchok'},
-    {en:'Banepa service centre', ne:'बनेपा सेवा केन्द्र', a:'Banepa-7, Char Dobato, opposite the Panauti bus stop', tel:['011-660364'], mail:'bnpsc@budol.coop.np', head:'Anita Thapa, centre head', q:'Char Dobato, Banepa'},
-    {en:'Panchkhal service centre', ne:'पाँचखाल सेवा केन्द्र', a:'Panchkhal-4, Tamaghat', tel:['011-590064'], q:'Tamaghat, Panchkhal, Kavrepalanchok'},
-  ];
-  let cSel = 0;
-  function renderLoc() {
-    $('locList').innerHTML = C.map((c, i) => `<li><button type="button" aria-current="${i === cSel}" data-c="${i}"><span class="pin">${icon('pin')}</span><strong>${lang === 'ne' ? c.ne : c.en}</strong><span>${c.a}</span><span class="tel">${c.tel.join(', ')}</span></button></li>`).join('');
-    $('locList').querySelectorAll('button').forEach(b => b.onclick = () => { cSel = +b.dataset.c; renderLoc(); });
-    const c = C[cSel], src = c.map || `https://maps.google.com/maps?q=${encodeURIComponent(c.q)}&z=15&output=embed`;
-    if ($('locMap').src !== src) $('locMap').src = src;
-    $('locInfo').innerHTML = `<div>${lang === 'ne' ? 'फोन' : 'Phone'}<b>${c.tel.map(x => `<a href="tel:${x.replace(/-/g, '')}">${x}</a>`).join(', ')}</b></div>` +
-      (c.mail ? `<div>${lang === 'ne' ? 'इमेल' : 'Email'}<b><a href="mailto:${c.mail}">${c.mail}</a></b></div>` : '') +
-      (c.head ? `<div>${lang === 'ne' ? 'प्रमुख' : 'In charge'}<b>${c.head}</b></div>` : '') +
-      `<div>${lang === 'ne' ? 'दिशा' : 'Directions'}<b><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.q || 'Budol Samudayik SACCOS Banepa')}" target="_blank" rel="noopener">${lang === 'ne' ? 'नक्सामा खोल्नुहोस्' : 'Open in Google Maps'}</a></b></div>`;
-  }
-
-  /* ---------- language ---------- */
-  document.querySelectorAll('[data-ne]').forEach(el => el.dataset.en = el.textContent);
-  function setLang(l) {
-    lang = l; document.documentElement.lang = l;
-    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
-    document.querySelectorAll('[data-ne]').forEach(el => el.textContent = l === 'ne' ? el.dataset.ne : el.dataset.en);
-    buildMenus(); renderFeatured(); renderRates(); fillLoans(); sync(); renderKpis(); renderLoc(); paintPause();
-    window.BUSAFeedback?.setLang(l);
-  }
-  document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.lang));
-
-  /* ---------- header shadow, scroll progress, back to top ---------- */
-  const hdr = $('siteHeader'), toTop = $('toTop'), progress = $('progress');
-  let ticking = false;
-  function onScroll() {
-    ticking = false;
-    hdr.classList.toggle('scrolled', scrollY > 10);
-    toTop.classList.toggle('show', scrollY > 900);
-    const max = document.documentElement.scrollHeight - innerHeight;
-    progress.style.setProperty('--p', max > 0 ? Math.min(1, scrollY / max) : 0);
-  }
-  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, {passive: true});
-  toTop.onclick = () => scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
-
-  /* ---------- financial ticker: spotlight follows the cursor ---------- */
-  const gBar = $('gBar');
-  gBar.addEventListener('mousemove', e => {
-    const r = gBar.getBoundingClientRect();
-    gBar.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-    gBar.style.setProperty('--my', (e.clientY - r.top) + 'px');
-  });
-
-  /* ---------- motion helpers ---------- */
-  // Replays the stagger-in animation on a container's children after a tab switch.
-  function swap(el) {
-    if (reduce) return;
-    [...el.children].forEach((c, i) => c.style.setProperty('--i', i));
-    el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap');
-  }
-  // Counts a figure from its previous value to the new one.
-  function tween(el, to, fmt) {
-    const from = el._v; el._v = to;
-    cancelAnimationFrame(el._raf);
-    if (reduce || from === undefined || from === to) { el.textContent = fmt(to); return; }
-    const t0 = performance.now(), D = 420;
-    const step = now => {
-      const k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 3);
-      el.textContent = fmt(from + (to - from) * e);
-      if (k < 1) el._raf = requestAnimationFrame(step);
-    };
-    el._raf = requestAnimationFrame(step);
-  }
-
-  /* ---------- scroll reveal ---------- */
-  if (!reduce && 'IntersectionObserver' in window) {
-    document.documentElement.classList.add('motion');
-    const io = new IntersectionObserver(es => es.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target; el.classList.add('in'); io.unobserve(el);
-      // drop the reveal styles once finished so hover transforms respond instantly
-      setTimeout(() => { el.removeAttribute('data-reveal'); el.style.removeProperty('--d'); }, 1400);
-    }), {threshold: .12, rootMargin: '0px 0px -40px 0px'});
-    [['.quick li', 70], ['.sec-head', 0], ['.pgrid', 0], ['.re-grid > .card', 140], ['.g-bar', 0],
-     ['.benefit', 80], ['.ucol', 120], ['.leader', 140], ['.loc-grid', 0], ['.officer', 120],
-     ['.trust-grid > div:first-child', 0], ['.award', 90], ['.affil', 70], ['.f-top > div', 90]]
-      .forEach(([sel, step]) => document.querySelectorAll(sel).forEach(el => {
-        const idx = [...el.parentElement.children].indexOf(el);
-        el.setAttribute('data-reveal', ''); el.style.setProperty('--d', (step * idx) + 'ms'); io.observe(el);
-      }));
-  }
-
-  buildMenus(); renderFeatured(); renderRates(); fillLoans(); sync(); renderLoc(); onScroll();
-})();
-</script>
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
 <!-- Feedback tab + panel. endpoint: null keeps submissions in this browser (mockup); the real site sets e.g. '/api/feedback'. -->
 <script>window.BUSA_FEEDBACK = { endpoint: null };</script>
 <script src="assets/feedback-widget.js"></script>

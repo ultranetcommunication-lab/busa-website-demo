@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Financial highlights — compact options</title>
+<script>
+  // Honour reduced motion (effects still happen, without the movement); ?motion=on forces animation for previewing.
+  if (!/[?&]motion=on\b/.test(location.search) && matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reduce-motion');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand-900:#04351D; --brand-800:#064A29; --brand:#0A6B3B; --brand-600:#0E8247; --brand-100:#D6EBDD; --brand-50:#EDF6F0;
+  --red:#D0122B; --gold:#E3A008;
+  --ink:#16202A; --text:#3D4956; --muted:#687482; --line:#E1E6EB; --bg:#F4F6F8;
+  --shadow-sm:0 1px 2px rgba(16,32,42,.06),0 1px 3px rgba(16,32,42,.08);
+  --shadow:0 2px 4px rgba(16,32,42,.04),0 12px 28px -8px rgba(16,32,42,.16);
+  --head:"Poppins",system-ui,sans-serif; --body:"Mukta",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#E6EBEF;color:var(--text);font-family:var(--body);font-size:16.5px;line-height:1.5}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+
+/* ---------- page chrome ---------- */
+.bar{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.bar .in{max-width:1320px;margin:0 auto;padding:12px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.bar strong{font-family:var(--head);font-weight:600;color:var(--ink);font-size:16px}
+.bar nav{display:flex;gap:6px;flex-wrap:wrap}
+.bar nav a{border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-family:var(--head);font-size:13.5px;font-weight:500;color:var(--ink)}
+.bar nav a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.view{margin-left:auto;display:inline-flex;background:var(--bg);border-radius:10px;padding:4px}
+.view button{border:0;background:transparent;padding:6px 14px;border-radius:7px;font-family:var(--head);font-weight:500;font-size:13.5px;color:var(--muted);cursor:pointer}
+.view button[aria-pressed="true"]{background:#fff;color:var(--brand-900);box-shadow:var(--shadow-sm)}
+.intro{max-width:1320px;margin:0 auto;padding:28px 24px 0}
+.intro p{margin:0;max-width:85ch}
+.opt{max-width:1320px;margin:0 auto;padding:28px 24px 8px}
+.opt-label{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.opt-label b{font-family:var(--head);font-weight:600;color:#fff;background:var(--ink);border-radius:8px;padding:2px 12px;font-size:14px}
+.opt-label span{font-family:var(--head);font-weight:600;color:var(--ink);font-size:17px}
+.opt-label em{font-style:normal;color:var(--muted);font-size:15px}
+.frame{container-type:inline-size;margin:0 auto;max-width:1272px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:max-width .35s ease}
+body.phone .frame{max-width:390px}
+/* faded neighbours so each option is seen in page context */
+.ctx{height:46px;background:repeating-linear-gradient(90deg,#EEF1F4 0 120px,#F6F8FA 120px 240px);display:flex;align-items:center;justify-content:center;font-size:12.5px;color:#9AA4AE}
+
+/* ---------- shared ---------- */
+.k{display:flex;align-items:center;gap:6px;font-size:13.5px;color:var(--muted);white-space:nowrap;line-height:1.3}
+.k svg.i{color:var(--brand);width:16px;height:16px}
+.val{font-family:var(--head);font-weight:600;color:var(--ink);white-space:nowrap;line-height:1.2;letter-spacing:-.01em}
+.sub{font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis}
+.link{display:inline-flex;align-items:center;gap:4px;font-family:var(--head);font-weight:500;font-size:14px;white-space:nowrap}
+.link svg.i{width:15px;height:15px}
+.title{font-family:var(--head);font-weight:600;color:var(--ink);margin:0;font-size:22px;line-height:1.2;display:flex;align-items:center;gap:12px}
+.title::before{content:"";width:6px;height:24px;border-radius:2px;background:linear-gradient(90deg,var(--brand-600) 0 3px,var(--red) 3px 6px)}
+.asof{color:var(--muted);font-size:14px}
+
+@container (max-width:560px){.sub{white-space:normal;overflow:visible}.k{white-space:normal}}
+
+/* =========== E: slim white strip =========== */
+.fh-e{background:#fff;padding:32px 40px}
+.e-head{display:flex;align-items:center;gap:8px 18px;margin-bottom:16px;flex-wrap:wrap}
+.e-head .link{margin-left:auto}
+.e-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:1px solid var(--line);border-radius:12px;background:#fff}
+.e-item{padding:14px 16px;min-width:0}
+.e-item+.e-item{border-left:1px solid var(--line)}
+.e-item .val{font-size:clamp(17px,1.6cqi,21px);margin:4px 0 1px}
+@container (max-width:1000px){.e-row{grid-template-columns:repeat(3,minmax(0,1fr))}.e-item:nth-child(4){border-left:0}.e-item:nth-child(n+4){border-top:1px solid var(--line)}}
+@container (max-width:560px){.fh-e{padding:26px 16px}.e-row{grid-template-columns:repeat(2,minmax(0,1fr))}.e-item:nth-child(n){border-left:0;border-top:1px solid var(--line)}.e-item:nth-child(-n+2){border-top:0}.e-item:nth-child(even){border-left:1px solid var(--line)}.e-head .link{margin-left:0}}
+
+/* =========== F: small cards in a row =========== */
+.fh-f{background:var(--brand-50);padding:30px 40px}
+.f-head{display:flex;align-items:center;gap:8px 18px;margin-bottom:16px;flex-wrap:wrap}
+.f-head .link{margin-left:auto}
+.f-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.f-card{background:#fff;border:1px solid #D3E7DA;border-radius:12px;padding:14px 16px;min-width:0;transition:box-shadow .25s,transform .25s}
+.f-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.f-card .ic{width:32px;height:32px;border-radius:9px;background:var(--brand-50);color:var(--brand);display:grid;place-items:center;margin-bottom:8px}
+.f-card .ic svg.i{width:17px;height:17px}
+.f-card .k{color:var(--text)}
+.f-card .val{font-size:clamp(17px,1.6cqi,21px);margin-top:2px}
+@container (max-width:1000px){.f-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@container (max-width:560px){.fh-f{padding:24px 16px}.f-row{grid-template-columns:repeat(2,minmax(0,1fr))}.f-head .link{margin-left:0}}
+
+/* =========== G: one-line ticker bar =========== */
+.fh-g{background:#fff;padding:24px 40px}
+.g-bar{display:flex;align-items:stretch;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.g-lead{flex:0 0 auto;background:var(--brand-50);padding:12px 20px;display:flex;flex-direction:column;justify-content:center;gap:2px;border-right:1px solid #D3E7DA}
+.g-lead strong{font-family:var(--head);font-weight:600;color:var(--brand-900);font-size:15px;white-space:nowrap}
+.g-lead span{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.g-lead a{font-family:var(--head);font-size:12.5px;font-weight:500;white-space:nowrap}
+.g-items{flex:1;display:flex;min-width:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.g-item{flex:1 0 auto;padding:12px 18px;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center}
+.g-item+.g-item{border-left:1px solid var(--line)}
+.g-item .val{font-size:clamp(16px,1.45cqi,19px)}
+/* G shades: G1 green label only, G2 tinted bar, G3 brand-green bar (lighter than the old #04351D band) */
+.g1 .g-lead{background:var(--brand);border-color:var(--brand)}
+.g1 .g-lead strong{color:#fff}
+.g1 .g-lead span{color:#D6EBDD}
+.g1 .g-lead a{color:#fff;text-decoration:underline}
+.g2 .g-bar{background:#DCEEE2;border-color:#C4E1CD}
+.g2 .g-lead{background:#C4E1CD;border-color:#B3D7BF}
+.g2 .g-item+.g-item{border-left-color:#C4E1CD}
+.g2 .k,.g2 .g-lead span{color:var(--text)}
+.g3 .g-bar{background:var(--brand);border-color:var(--brand)}
+.g3 .g-lead{background:var(--brand-800);border-color:rgba(255,255,255,.15)}
+.g3 .g-lead strong{color:#fff}
+.g3 .g-lead span{color:#D6EBDD}
+.g3 .g-lead a{color:#fff;text-decoration:underline}
+.g3 .g-item+.g-item{border-left-color:rgba(255,255,255,.2)}
+.g3 .k{color:#DCEFE3}
+.g3 .val{color:#fff}
+/* G3 mouse effects: cursor spotlight, label flips to the exact amount, gold underline, link arrow nudge */
+.g3 .g-bar{position:relative;transition:box-shadow .3s}
+.g3 .g-bar:hover{box-shadow:0 14px 30px -14px rgba(6,74,41,.6)}
+.g3 .g-bar::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.16),transparent 65%)}
+.g3 .g-bar:hover::before{opacity:1}
+.g3 .g-item{position:relative;cursor:default;transition:background .25s;outline-offset:-3px}
+.g3 .g-item:hover,.g3 .g-item:focus-visible{background:rgba(255,255,255,.07)}
+.g3 .g-item::after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease,ease)}
+.g3 .g-item:hover::after,.g3 .g-item:focus-visible::after{transform:scaleX(1)}
+.g3 .flip{display:block;position:relative;height:18px;overflow:hidden}
+.g3 .flip .x{position:absolute;left:0;top:100%}
+.g3 .flip > span{display:block;height:18px;line-height:18px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.g3 .flip .x{font-size:12.5px;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.g3 .g-item:hover .flip > span,.g3 .g-item:focus-visible .flip > span{transform:translateY(-100%)}
+.g3 .val{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.g3 .g-item:hover .val,.g3 .g-item:focus-visible .val{transform:translateX(3px)}
+.g3 .g-lead a::after{content:"";display:inline-block;width:6px;height:6px;border-right:2px solid;border-top:2px solid;transform:rotate(45deg);margin:0 0 1px 6px;transition:transform .25s}
+.g3 .g-lead a:hover::after{transform:translateX(4px) rotate(45deg)}
+.reduce-motion *,.reduce-motion *::before,.reduce-motion *::after{transition:none!important;animation:none!important}
+@container (max-width:1000px){.g-bar{flex-direction:column}.g-lead{flex-direction:row;align-items:center;justify-content:space-between;gap:12px;border-right:0;border-bottom:1px solid #D3E7DA}.g-item{flex:0 0 auto}}
+@container (max-width:560px){.fh-g{padding:20px 16px}.g-lead{flex-wrap:wrap}.g-item{flex:0 0 42%}}
+</style>
+</head>
+<body>
+<div class="demo-strip" role="note" style="background:#16202A;color:#fff;text-align:center;font:500 13.5px/1.45 system-ui,sans-serif;padding:7px 12px">Design demo, not the official BUSA website. For real services visit <a href="https://budol.coop.np" style="color:#FFD27A;text-decoration:underline">budol.coop.np</a></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="9" cy="9" r="6"/><path d="M15.5 9.2A6 6 0 1 1 9.2 15.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5M16 4.6a3.5 3.5 0 0 1 0 6.8M18 13.7c2.1.7 3.5 2.8 3.5 6.3"/></symbol>
+  <symbol id="i-child" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M8 21v-5l-2-3 3-3h6l3 3-2 3v5"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+</svg>
+
+<div class="bar">
+  <div class="in">
+    <strong>Financial highlights: compact, single row</strong>
+    <nav aria-label="Options"><a href="#e">E. Slim strip</a><a href="#f">F. Small cards</a><a href="#g">G. Ticker bar</a><a href="#g-dark">G1–G3. Darker ticker</a></nav>
+    <div class="view" role="group" aria-label="Preview width">
+      <button type="button" aria-pressed="true" data-w="desk">Desktop</button>
+      <button type="button" aria-pressed="false" data-w="phone">Phone</button>
+    </div>
+  </div>
+</div>
+
+<div class="intro"><p>All six figures in one row on desktop. The striped bands above and below each option stand in for the neighbouring page sections, to show how little height each one takes. On a phone six figures cannot fit across, so E and F wrap to two columns and G scrolls sideways.</p></div>
+
+<!-- =================== E =================== -->
+<section class="opt" id="e">
+  <div class="opt-label"><b>E</b><span>Slim strip</span><em>White, one bordered row with dividers. About 190px tall.</em></div>
+  <div class="frame">
+    <div class="ctx">section above</div>
+    <div class="fh-e">
+      <div class="e-head"><h2 class="title">Financial highlights</h2><span class="asof">As of 31 Bhadra 2083, FY 2083/84</span><a class="link" href="#">View monthly report<svg class="i"><use href="#i-right"/></svg></a></div>
+      <div class="e-row">
+        <div class="e-item"><span class="k"><svg class="i"><use href="#i-bank"/></svg>Total assets</span><div class="val">Rs 2.36 arba</div><div class="sub">Rs 2,35,83,92,923.58</div></div>
+        <div class="e-item"><span class="k"><svg class="i"><use href="#i-coins"/></svg>Total savings</span><div class="val">Rs 1.91 arba</div><div class="sub">Rs 1,90,56,70,500.00</div></div>
+        <div class="e-item"><span class="k"><svg class="i"><use href="#i-shield"/></svg>Institutional capital</span><div class="val">Rs 19.86 crore</div><div class="sub">Rs 19,86,37,082.70</div></div>
+        <div class="e-item"><span class="k"><svg class="i"><use href="#i-chart"/></svg>Share capital</span><div class="val">Rs 14.63 crore</div><div class="sub">Rs 14,62,75,300.00</div></div>
+        <div class="e-item"><span class="k"><svg class="i"><use href="#i-users"/></svg>Members</span><div class="val">19,908</div><div class="sub">11,056 women, 8,834 men</div></div>
+        <div class="e-item"><span class="k"><svg class="i"><use href="#i-child"/></svg>Child savers</span><div class="val">8,261</div><div class="sub">child saving accounts</div></div>
+      </div>
+    </div>
+    <div class="ctx">section below</div>
+  </div>
+</section>
+
+<!-- =================== F =================== -->
+<section class="opt" id="f">
+  <div class="opt-label"><b>F</b><span>Small cards</span><em>Six small white cards with icons on a pale green band. About 210px tall.</em></div>
+  <div class="frame">
+    <div class="ctx">section above</div>
+    <div class="fh-f">
+      <div class="f-head"><h2 class="title">Financial highlights</h2><span class="asof">As of 31 Bhadra 2083, FY 2083/84</span><a class="link" href="#">View monthly report<svg class="i"><use href="#i-right"/></svg></a></div>
+      <div class="f-row">
+        <div class="f-card"><span class="ic"><svg class="i"><use href="#i-bank"/></svg></span><span class="k">Total assets</span><div class="val">Rs 2.36 arba</div><div class="sub">Rs 2,35,83,92,923.58</div></div>
+        <div class="f-card"><span class="ic"><svg class="i"><use href="#i-coins"/></svg></span><span class="k">Total savings</span><div class="val">Rs 1.91 arba</div><div class="sub">Rs 1,90,56,70,500.00</div></div>
+        <div class="f-card"><span class="ic"><svg class="i"><use href="#i-shield"/></svg></span><span class="k">Institutional capital</span><div class="val">Rs 19.86 crore</div><div class="sub">Rs 19,86,37,082.70</div></div>
+        <div class="f-card"><span class="ic"><svg class="i"><use href="#i-chart"/></svg></span><span class="k">Share capital</span><div class="val">Rs 14.63 crore</div><div class="sub">Rs 14,62,75,300.00</div></div>
+        <div class="f-card"><span class="ic"><svg class="i"><use href="#i-users"/></svg></span><span class="k">Members</span><div class="val">19,908</div><div class="sub">11,056 women, 8,834 men</div></div>
+        <div class="f-card"><span class="ic"><svg class="i"><use href="#i-child"/></svg></span><span class="k">Child savers</span><div class="val">8,261</div><div class="sub">child saving accounts</div></div>
+      </div>
+    </div>
+    <div class="ctx">section below</div>
+  </div>
+</section>
+
+<!-- =================== G =================== -->
+<section class="opt" id="g">
+  <div class="opt-label"><b>G</b><span>Ticker bar</span><em>The smallest: one bar, figures only, like a bank's key-figures line. About 120px tall.</em></div>
+  <div class="frame">
+    <div class="ctx">section above</div>
+    <div class="fh-g">
+      <div class="g-bar">
+        <div class="g-lead"><strong>Financial highlights</strong><span>31 Bhadra 2083</span><a href="#">Monthly report</a></div>
+        <div class="g-items" tabindex="0" aria-label="Key figures">
+          <div class="g-item" data-full="Rs 2,35,83,92,923.58"><span class="k">Total assets</span><span class="val">Rs 2.36 arba</span></div>
+          <div class="g-item" data-full="Rs 1,90,56,70,500.00"><span class="k">Total savings</span><span class="val">Rs 1.91 arba</span></div>
+          <div class="g-item" data-full="Rs 19,86,37,082.70"><span class="k">Institutional capital</span><span class="val">Rs 19.86 crore</span></div>
+          <div class="g-item" data-full="Rs 14,62,75,300.00"><span class="k">Share capital</span><span class="val">Rs 14.63 crore</span></div>
+          <div class="g-item" data-full="11,056 women, 8,834 men"><span class="k">Members</span><span class="val">19,908</span></div>
+          <div class="g-item" data-full="child saving accounts"><span class="k">Child savers</span><span class="val">8,261</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ctx">section below</div>
+  </div>
+</section>
+
+<!-- =================== G shades =================== -->
+<section class="opt" id="g-dark">
+  <div class="opt-label"><b>G1</b><span>Ticker bar, green label</span><em>Only the left "Financial highlights" block turns BUSA green. Figures stay on white.</em></div>
+  <div class="frame"><div class="ctx">section above</div><div class="fh-g g1" data-clone-g></div><div class="ctx">section below</div></div>
+</section>
+<section class="opt">
+  <div class="opt-label"><b>G2</b><span>Ticker bar, tinted</span><em>The whole bar in a medium green tint, with dark text.</em></div>
+  <div class="frame"><div class="ctx">section above</div><div class="fh-g g2" data-clone-g></div><div class="ctx">section below</div></div>
+</section>
+<section class="opt">
+  <div class="opt-label"><b>G3</b><span>Ticker bar, BUSA green</span><em>The whole bar in BUSA's logo green with white text. Move the mouse over it: a soft light follows the cursor, and each figure's label flips to show its exact amount.</em></div>
+  <div class="frame"><div class="ctx">section above</div><div class="fh-g g3" data-clone-g></div><div class="ctx">section below</div></div>
+</section>
+
+<div style="height:60px"></div>
+
+<script>
+  // G1-G3 reuse the G ticker markup with a different shade class
+  const gBar = document.querySelector('#g .g-bar');
+  document.querySelectorAll('[data-clone-g]').forEach(el => el.appendChild(gBar.cloneNode(true)));
+
+  // G3 hover: wrap each label with its exact amount so the label can flip, and let the spotlight follow the cursor
+  document.querySelectorAll('.g3 .g-item').forEach(item => {
+    const k = item.querySelector('.k');
+    const flip = document.createElement('span'); flip.className = 'flip';
+    const x = document.createElement('span'); x.className = 'x'; x.textContent = item.dataset.full;
+    k.replaceWith(flip); flip.append(k, x);
+    item.tabIndex = 0;
+    item.setAttribute('aria-label', `${k.textContent}: ${item.querySelector('.val').textContent} (${item.dataset.full})`);
+  });
+  const g3 = document.querySelector('.g3 .g-bar');
+  g3.addEventListener('mousemove', e => {
+    const r = g3.getBoundingClientRect();
+    g3.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    g3.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+  document.querySelectorAll('.view button').forEach(b => b.onclick = () => {
+    document.body.classList.toggle('phone', b.dataset.w === 'phone');
+    document.querySelectorAll('.view button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  });
+</script>
+</body>
+</html>

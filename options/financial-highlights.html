@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Financial highlights — design options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand-950:#032816; --brand-900:#04351D; --brand-800:#064A29; --brand:#0A6B3B; --brand-600:#0E8247; --brand-100:#D6EBDD; --brand-50:#EDF6F0;
+  --red:#D0122B; --gold:#E3A008; --blue:#2A78D6;
+  --ink:#16202A; --text:#3D4956; --muted:#687482; --line:#E1E6EB; --bg:#F4F6F8;
+  --shadow-sm:0 1px 2px rgba(16,32,42,.06),0 1px 3px rgba(16,32,42,.08);
+  --shadow:0 2px 4px rgba(16,32,42,.04),0 12px 28px -8px rgba(16,32,42,.16);
+  --head:"Poppins",system-ui,sans-serif; --body:"Mukta",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#E6EBEF;color:var(--text);font-family:var(--body);font-size:16.5px;line-height:1.6}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+h2{font-family:var(--head);font-weight:600;color:var(--ink);margin:0;font-size:30px;letter-spacing:-.01em;line-height:1.2}
+h2::after{content:"";display:block;width:56px;height:6px;margin-top:12px;background:linear-gradient(var(--brand-600) 0 3px,var(--red) 3px 6px)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+
+/* ---------- options page chrome ---------- */
+.bar{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.bar .in{max-width:1320px;margin:0 auto;padding:12px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.bar strong{font-family:var(--head);font-weight:600;color:var(--ink);font-size:16px}
+.bar nav{display:flex;gap:6px;flex-wrap:wrap}
+.bar nav a{border:1px solid var(--line);border-radius:999px;padding:4px 14px;font-family:var(--head);font-size:13.5px;font-weight:500;color:var(--ink)}
+.bar nav a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+.view{margin-left:auto;display:inline-flex;background:var(--bg);border-radius:10px;padding:4px}
+.view button{border:0;background:transparent;padding:6px 14px;border-radius:7px;font-family:var(--head);font-weight:500;font-size:13.5px;color:var(--muted);cursor:pointer}
+.view button[aria-pressed="true"]{background:#fff;color:var(--brand-900);box-shadow:var(--shadow-sm)}
+.intro{max-width:1320px;margin:0 auto;padding:28px 24px 0;color:var(--text)}
+.intro p{margin:0;max-width:80ch}
+.opt{max-width:1320px;margin:0 auto;padding:28px 24px 8px}
+.opt-label{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.opt-label b{font-family:var(--head);font-weight:600;color:#fff;background:var(--ink);border-radius:8px;padding:2px 12px;font-size:14px}
+.opt-label span{font-family:var(--head);font-weight:600;color:var(--ink);font-size:17px}
+.opt-label em{font-style:normal;color:var(--muted);font-size:15px}
+.frame{container-type:inline-size;margin:0 auto;max-width:1272px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:max-width .35s ease}
+body.phone .frame{max-width:390px}
+
+/* ---------- shared pieces ---------- */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 24px;flex-wrap:wrap;margin-bottom:28px}
+.asof{margin:8px 0 0;color:var(--muted);font-size:15px}
+.more{display:inline-flex;align-items:center;gap:4px;font-family:var(--head);font-weight:500;font-size:14.5px}
+.more svg.i{width:16px;height:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-family:var(--head);font-weight:500;font-size:14px;background:var(--brand);color:#fff;white-space:nowrap}
+.btn:hover{background:var(--brand-800);text-decoration:none}
+.btn svg.i{width:17px;height:17px}
+.ic{width:46px;height:46px;border-radius:12px;background:var(--brand-50);color:var(--brand);display:grid;place-items:center;flex-shrink:0}
+.lab{font-size:15px;color:var(--text);line-height:1.3}
+.val{font-family:var(--head);font-weight:600;color:var(--ink);white-space:nowrap;line-height:1.15;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+/* split bar: 2px surface gaps, 4px rounded ends, direct labels below */
+.split{display:flex;gap:2px;height:8px;margin:12px 0 8px}
+.split i{display:block;height:100%;border-radius:2px;position:relative;cursor:default}
+.split i:first-child{border-radius:4px 2px 2px 4px}
+.split i:last-child{border-radius:2px 4px 4px 2px}
+.split .track{background:var(--line)}
+.keys{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13.5px;color:var(--text)}
+.keys span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.keys b{width:10px;height:10px;border-radius:3px;display:inline-block}
+.keys strong{color:var(--ink);font-weight:600}
+/* hover/focus tooltip on bar segments */
+[data-tip]:hover::after,[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);background:var(--ink);color:#fff;font-size:12.5px;line-height:1.3;padding:5px 9px;border-radius:6px;white-space:nowrap;z-index:5;pointer-events:none}
+.c-green{background:var(--brand)} .c-gold{background:var(--gold)} .c-blue{background:var(--blue)}
+
+/* =========== Option A: light tiles =========== */
+.fh-a{background:var(--bg);padding:64px 40px}
+.fh-a .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fh-a .tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:2px 16px;align-content:start;transition:box-shadow .25s,transform .25s}
+.fh-a .tile:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.fh-a .tile .ic{grid-row:span 3}
+.fh-a .val{font-size:clamp(22px,2.4cqi,30px)}
+.fh-a .tile .split,.fh-a .tile .keys{grid-column:2}
+@container (max-width:980px){.fh-a .grid{grid-template-columns:repeat(2,1fr)}}
+@container (max-width:600px){.fh-a{padding:44px 18px}.fh-a .grid{grid-template-columns:1fr}.fh-a h2{font-size:25px}}
+
+/* =========== Option B: lead figure + supporting tiles =========== */
+.fh-b{background:var(--brand-50);padding:64px 40px}
+.fh-b .layout{display:grid;grid-template-columns:5fr 7fr;gap:20px}
+.fh-b .lead{background:#fff;border:1px solid #D3E7DA;border-radius:18px;padding:30px 32px;display:flex;flex-direction:column}
+.fh-b .lead .top{display:flex;gap:14px;align-items:center}
+.fh-b .lead .val{font-size:clamp(40px,4.6cqi,56px);margin-top:14px}
+.fh-b .lead .sub{font-size:14.5px;margin-top:2px}
+.fh-b .comp{margin-top:auto;padding-top:26px;border-top:1px dashed var(--line)}
+.fh-b .comp h3{margin:0;font-family:var(--head);font-weight:500;font-size:14.5px;color:var(--ink)}
+.fh-b .comp .split{height:12px;margin:14px 0 14px}
+.fh-b .comp ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.fh-b .comp li{display:grid;grid-template-columns:12px 1fr auto auto;gap:10px;align-items:center;font-size:14.5px}
+.fh-b .comp li b{width:12px;height:12px;border-radius:3px}
+.fh-b .comp li strong{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+.fh-b .comp li span:last-child{color:var(--muted);font-variant-numeric:tabular-nums;min-width:3.6em;text-align:right}
+.fh-b .tiles{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fh-b .tile{background:#fff;border:1px solid #D3E7DA;border-radius:18px;padding:24px 26px;display:flex;flex-direction:column;gap:4px;transition:box-shadow .25s,transform .25s}
+.fh-b .tile:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.fh-b .tile .ic{margin-bottom:10px}
+.fh-b .tile .val{font-size:clamp(24px,2.5cqi,32px)}
+.fh-b .facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid #D3E7DA;border-radius:18px}
+.fh-b .facts div{display:flex;gap:12px;align-items:center;padding:18px 24px}
+.fh-b .facts div+div{border-left:1px solid var(--line)}
+.fh-b .facts .ic{width:40px;height:40px;border-radius:10px}
+.fh-b .facts .ic svg.i{width:19px;height:19px}
+.fh-b .facts strong{display:block;font-family:var(--head);font-weight:600;color:var(--ink);font-size:20px;line-height:1.2}
+.fh-b .facts span{font-size:14px;color:var(--muted);line-height:1.3}
+@container (max-width:980px){.fh-b .layout{grid-template-columns:1fr}.fh-b .facts{grid-template-columns:1fr 1fr}.fh-b .facts div:nth-child(3){border-left:0}.fh-b .facts div:nth-child(n+3){border-top:1px solid var(--line)}}
+@container (max-width:600px){.fh-b{padding:44px 18px}.fh-b h2{font-size:25px}.fh-b .tiles{grid-template-columns:1fr}.fh-b .lead{padding:24px}.fh-b .facts div{padding:14px 16px}}
+
+/* =========== Option C: annual-report strip =========== */
+.fh-c{background:#fff;padding:64px 40px}
+.fh-c .tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.fh-c .pill{border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:14px;color:var(--text);display:inline-flex;gap:6px;align-items:center}
+.fh-c .pill svg.i{width:16px;height:16px;color:var(--brand)}
+.fh-c .band{display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--brand);border-bottom:1px solid var(--line)}
+.fh-c .cell{padding:26px 26px 26px 0}
+.fh-c .cell+.cell{padding-left:26px;border-left:1px solid var(--line)}
+.fh-c .cell .val{font-size:clamp(26px,2.9cqi,36px);margin:6px 0 2px}
+.fh-c .meter{height:6px;border-radius:4px;background:var(--brand-100);margin:14px 0 6px;overflow:hidden}
+.fh-c .meter i{display:block;height:100%;background:var(--brand);border-radius:4px}
+.fh-c .mlab{font-size:13.5px;color:var(--text)}
+.fh-c .mlab strong{color:var(--ink)}
+.fh-c .band2{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:0;background:var(--bg);border-radius:14px;margin-top:20px}
+.fh-c .band2 > div{padding:20px 24px;display:flex;gap:14px;align-items:flex-start}
+.fh-c .band2 > div+div{border-left:1px solid var(--line)}
+.fh-c .band2 .val{font-size:24px}
+.fh-c .band2 .ic{background:#fff}
+.fh-c .band2 .grow{flex:1;min-width:0}
+@container (max-width:980px){.fh-c .band{grid-template-columns:1fr 1fr}.fh-c .cell:nth-child(3){padding-left:0;border-left:0}.fh-c .cell:nth-child(n+3){border-top:1px solid var(--line)}.fh-c .band2{grid-template-columns:1fr 1fr}.fh-c .band2 > div:nth-child(3){border-left:0}.fh-c .band2 > div:nth-child(n+3){border-top:1px solid var(--line)}}
+@container (max-width:600px){.fh-c{padding:44px 18px}.fh-c h2{font-size:25px}.fh-c .band,.fh-c .band2{grid-template-columns:1fr}.fh-c .cell,.fh-c .cell+.cell{padding:20px 0;border-left:0}.fh-c .cell+.cell{border-top:1px solid var(--line)}.fh-c .band2 > div{border-left:0!important}.fh-c .band2 > div+div{border-top:1px solid var(--line)}}
+
+/* =========== Option D: photo + figures =========== */
+.fh-d{background:#fff;padding:64px 40px}
+.fh-d .layout{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center}
+.fh-d figure{margin:0;position:relative;padding-bottom:56px;isolation:isolate}
+.fh-d figure img{width:100%;aspect-ratio:4/3.2;object-fit:cover;border-radius:18px;display:block}
+.fh-d figure::before{content:"";position:absolute;left:-14px;top:-14px;width:46%;height:46%;border-radius:18px;background:var(--brand-50);z-index:-1}
+.fh-d .float{position:absolute;right:-18px;bottom:0;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:20px 22px;width:min(340px,86%)}
+.fh-d .float .val{font-size:36px}
+.fh-d figcaption{position:absolute;left:14px;top:14px;background:rgba(3,40,22,.72);color:#fff;font-size:13px;padding:3px 10px;border-radius:6px}
+.fh-d .grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.fh-d .cell{padding:20px 22px 22px 0;border-top:1px solid var(--line)}
+.fh-d .cell:nth-child(even){padding-left:22px;border-left:1px solid var(--line)}
+.fh-d .cell .k{display:flex;align-items:center;gap:8px}
+.fh-d .cell .k svg.i{width:18px;height:18px;color:var(--brand)}
+.fh-d .cell .val{font-size:clamp(24px,2.6cqi,32px);margin-top:4px}
+.fh-d .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px}
+@container (max-width:980px){.fh-d .layout{grid-template-columns:1fr;gap:28px}.fh-d .float{right:0}}
+@container (max-width:600px){.fh-d{padding:44px 18px}.fh-d h2{font-size:25px}.fh-d .grid{grid-template-columns:1fr}.fh-d .cell:nth-child(even){padding-left:0;border-left:0}.fh-d .float{position:relative;width:100%;margin-top:-40px;right:auto}.fh-d figure{padding-bottom:0}.fh-d figure::before{display:none}}
+</style>
+</head>
+<body>
+<div class="demo-strip" role="note" style="background:#16202A;color:#fff;text-align:center;font:500 13.5px/1.45 system-ui,sans-serif;padding:7px 12px">Design demo, not the official BUSA website. For real services visit <a href="https://budol.coop.np" style="color:#FFD27A;text-decoration:underline">budol.coop.np</a></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="9" cy="9" r="6"/><path d="M15.5 9.2A6 6 0 1 1 9.2 15.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5M16 4.6a3.5 3.5 0 0 1 0 6.8M18 13.7c2.1.7 3.5 2.8 3.5 6.3"/></symbol>
+  <symbol id="i-child" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M8 21v-5l-2-3 3-3h6l3 3-2 3v5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+</svg>
+
+<div class="bar">
+  <div class="in">
+    <strong>Financial highlights: 4 options</strong>
+    <nav aria-label="Options"><a href="#a">A. Light tiles</a><a href="#b">B. Lead figure</a><a href="#c">C. Report strip</a><a href="#d">D. Photo and figures</a></nav>
+    <div class="view" role="group" aria-label="Preview width">
+      <button type="button" aria-pressed="true" data-w="desk">Desktop</button>
+      <button type="button" aria-pressed="false" data-w="phone">Phone</button>
+    </div>
+  </div>
+</div>
+
+<div class="intro"><p>All four use the same figures (31 Bhadra 2083) on a light background instead of the dark green band. Switch to <b>Phone</b> to see each one at mobile width. Hover a coloured bar to see its exact value.</p></div>
+
+<!-- =================== OPTION A =================== -->
+<section class="opt" id="a">
+  <div class="opt-label"><b>A</b><span>Light tiles</span><em>Same six figures as now, as white cards on light grey. Closest to the current layout.</em></div>
+  <div class="frame"><div class="fh-a">
+    <div class="head">
+      <div><h2>Financial highlights</h2><p class="asof">As of 31 Bhadra 2083, fiscal year 2083/84</p></div>
+      <a class="more" href="#">View monthly report<svg class="i"><use href="#i-right"/></svg></a>
+    </div>
+    <div class="grid">
+      <div class="tile"><span class="ic"><svg class="i"><use href="#i-bank"/></svg></span><span class="lab">Total assets</span><span class="val">Rs 2.36 arba</span><span class="sub">Rs 2,35,83,92,923.58</span></div>
+      <div class="tile"><span class="ic"><svg class="i"><use href="#i-coins"/></svg></span><span class="lab">Total savings</span><span class="val">Rs 1.91 arba</span><span class="sub">Rs 1,90,56,70,500.00</span></div>
+      <div class="tile"><span class="ic"><svg class="i"><use href="#i-shield"/></svg></span><span class="lab">Institutional capital</span><span class="val">Rs 19.86 crore</span><span class="sub">Rs 19,86,37,082.70</span></div>
+      <div class="tile"><span class="ic"><svg class="i"><use href="#i-chart"/></svg></span><span class="lab">Share capital</span><span class="val">Rs 14.63 crore</span><span class="sub">Rs 14,62,75,300.00</span></div>
+      <div class="tile"><span class="ic"><svg class="i"><use href="#i-users"/></svg></span><span class="lab">Members</span><span class="val">19,908</span><span class="sub">plus 18 institutions</span>
+        <div class="split" role="img" aria-label="Women 11,056 (55.5%), men 8,834 (44.4%)"><i class="c-gold" style="flex:11056" data-tip="Women: 11,056 (55.5%)"></i><i class="c-green" style="flex:8834" data-tip="Men: 8,834 (44.4%)"></i></div>
+        <div class="keys"><span><b class="c-gold"></b>Women <strong>11,056</strong></span><span><b class="c-green"></b>Men <strong>8,834</strong></span></div>
+      </div>
+      <div class="tile"><span class="ic"><svg class="i"><use href="#i-child"/></svg></span><span class="lab">Child savers</span><span class="val">8,261</span><span class="sub">Served by 50 staff, 25 women and 25 men</span></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- =================== OPTION B =================== -->
+<section class="opt" id="b">
+  <div class="opt-label"><b>B</b><span>Lead figure</span><em>Total assets leads, with a bar showing how much of it is members' savings and capital. People figures on the right. Pale green background.</em></div>
+  <div class="frame"><div class="fh-b">
+    <div class="head">
+      <div><h2>Financial highlights</h2><p class="asof">As of 31 Bhadra 2083, fiscal year 2083/84</p></div>
+      <a class="btn" href="#"><svg class="i"><use href="#i-download"/></svg>Monthly report</a>
+    </div>
+    <div class="layout">
+      <div class="lead">
+        <div class="top"><span class="ic"><svg class="i"><use href="#i-bank"/></svg></span><span class="lab">Total assets</span></div>
+        <div class="val">Rs 2.36 arba</div>
+        <div class="sub">Rs 2,35,83,92,923.58</div>
+        <div class="comp">
+          <h3>Savings and capital as a share of total assets</h3>
+          <div class="split" role="img" aria-label="Savings 80.8%, institutional capital 8.4%, share capital 6.2% of total assets">
+            <i class="c-green" style="flex:80.8" data-tip="Savings: 80.8%"></i><i class="c-gold" style="flex:8.4" data-tip="Institutional capital: 8.4%"></i><i class="c-blue" style="flex:6.2" data-tip="Share capital: 6.2%"></i><i class="track" style="flex:4.6" data-tip="Remaining: 4.6%"></i>
+          </div>
+          <ul>
+            <li><b class="c-green"></b><span>Members' savings</span><strong>Rs 1.91 arba</strong><span>80.8%</span></li>
+            <li><b class="c-gold"></b><span>Institutional capital</span><strong>Rs 19.86 crore</strong><span>8.4%</span></li>
+            <li><b class="c-blue"></b><span>Share capital</span><strong>Rs 14.63 crore</strong><span>6.2%</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tiles">
+        <div class="tile"><span class="ic"><svg class="i"><use href="#i-users"/></svg></span><span class="lab">Members</span><span class="val">19,908</span>
+          <div class="split" role="img" aria-label="Women 11,056 (55.5%), men 8,834 (44.4%)"><i class="c-gold" style="flex:11056" data-tip="Women: 11,056 (55.5%)"></i><i class="c-green" style="flex:8834" data-tip="Men: 8,834 (44.4%)"></i></div>
+          <div class="keys"><span><b class="c-gold"></b>Women <strong>11,056</strong></span><span><b class="c-green"></b>Men <strong>8,834</strong></span><span>Institutions <strong>18</strong></span></div>
+        </div>
+        <div class="tile"><span class="ic"><svg class="i"><use href="#i-child"/></svg></span><span class="lab">Child savers</span><span class="val">8,261</span><span class="sub">building the saving habit early</span></div>
+        <div class="tile"><span class="ic"><svg class="i"><use href="#i-brief"/></svg></span><span class="lab">Staff</span><span class="val">50</span><span class="sub">25 women and 25 men</span></div>
+        <div class="tile"><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span><span class="lab">Service centres</span><span class="val">5</span><span class="sub">across Kavrepalanchok, since 2057 B.S.</span></div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- =================== OPTION C =================== -->
+<section class="opt" id="c">
+  <div class="opt-label"><b>C</b><span>Report strip</span><em>White background, figures in one ruled row like a bank's annual report. Each figure shows its share of total assets.</em></div>
+  <div class="frame"><div class="fh-c">
+    <div class="head">
+      <div><h2>Financial highlights</h2></div>
+      <div class="tools"><span class="pill"><svg class="i"><use href="#i-cal"/></svg>As of 31 Bhadra 2083, FY 2083/84</span><a class="btn" href="#"><svg class="i"><use href="#i-download"/></svg>Monthly report</a></div>
+    </div>
+    <div class="band">
+      <div class="cell"><span class="lab">Total assets</span><div class="val">Rs 2.36 arba</div><span class="sub">Rs 2,35,83,92,923.58</span>
+        <div class="meter" role="img" aria-label="100% of total assets"><i style="width:100%"></i></div><div class="mlab"><strong>100%</strong> total balance</div></div>
+      <div class="cell"><span class="lab">Total savings</span><div class="val">Rs 1.91 arba</div><span class="sub">Rs 1,90,56,70,500.00</span>
+        <div class="meter" role="img" aria-label="80.8% of total assets"><i style="width:80.8%"></i></div><div class="mlab"><strong>80.8%</strong> of total assets</div></div>
+      <div class="cell"><span class="lab">Institutional capital</span><div class="val">Rs 19.86 crore</div><span class="sub">Rs 19,86,37,082.70</span>
+        <div class="meter" role="img" aria-label="8.4% of total assets"><i style="width:8.4%"></i></div><div class="mlab"><strong>8.4%</strong> of total assets</div></div>
+      <div class="cell"><span class="lab">Share capital</span><div class="val">Rs 14.63 crore</div><span class="sub">Rs 14,62,75,300.00</span>
+        <div class="meter" role="img" aria-label="6.2% of total assets"><i style="width:6.2%"></i></div><div class="mlab"><strong>6.2%</strong> of total assets</div></div>
+    </div>
+    <div class="band2">
+      <div><span class="ic"><svg class="i"><use href="#i-users"/></svg></span><div class="grow"><span class="lab">Members</span><div class="val">19,908</div>
+        <div class="split" role="img" aria-label="Women 11,056 (55.5%), men 8,834 (44.4%)"><i class="c-gold" style="flex:11056" data-tip="Women: 11,056 (55.5%)"></i><i class="c-green" style="flex:8834" data-tip="Men: 8,834 (44.4%)"></i></div>
+        <div class="keys"><span><b class="c-gold"></b>Women <strong>11,056</strong></span><span><b class="c-green"></b>Men <strong>8,834</strong></span><span>Institutions <strong>18</strong></span></div></div></div>
+      <div><span class="ic"><svg class="i"><use href="#i-child"/></svg></span><div><span class="lab">Child savers</span><div class="val">8,261</div></div></div>
+      <div><span class="ic"><svg class="i"><use href="#i-brief"/></svg></span><div><span class="lab">Staff</span><div class="val">50</div><span class="sub">25 women, 25 men</span></div></div>
+      <div><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span><div><span class="lab">Service centres</span><div class="val">5</div><span class="sub">across Kavrepalanchok</span></div></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- =================== OPTION D =================== -->
+<section class="opt" id="d">
+  <div class="opt-label"><b>D</b><span>Photo and figures</span><em>Puts members first: a programme photo with the member count, and the four money figures beside it. White background.</em></div>
+  <div class="frame"><div class="fh-d">
+    <div class="layout">
+      <figure>
+        <img src="https://budol.coop.np/wp-content/uploads/2026/04/27th-Anniversary-2.jpg" alt="Members at the 27th anniversary programme">
+        <figcaption>27th anniversary, 2083</figcaption>
+        <div class="float">
+          <span class="lab">Members</span><div class="val">19,908</div>
+          <div class="split" role="img" aria-label="Women 11,056 (55.5%), men 8,834 (44.4%)"><i class="c-gold" style="flex:11056" data-tip="Women: 11,056 (55.5%)"></i><i class="c-green" style="flex:8834" data-tip="Men: 8,834 (44.4%)"></i></div>
+          <div class="keys"><span><b class="c-gold"></b>Women <strong>11,056</strong></span><span><b class="c-green"></b>Men <strong>8,834</strong></span><span>and <strong>8,261</strong> child savers</span></div>
+        </div>
+      </figure>
+      <div>
+        <div class="head"><div><h2>Financial highlights</h2><p class="asof">As of 31 Bhadra 2083, fiscal year 2083/84</p></div></div>
+        <div class="grid">
+          <div class="cell"><span class="k"><svg class="i"><use href="#i-bank"/></svg><span class="lab">Total assets</span></span><div class="val">Rs 2.36 arba</div><span class="sub">Rs 2,35,83,92,923.58</span></div>
+          <div class="cell"><span class="k"><svg class="i"><use href="#i-coins"/></svg><span class="lab">Total savings</span></span><div class="val">Rs 1.91 arba</div><span class="sub">Rs 1,90,56,70,500.00</span></div>
+          <div class="cell"><span class="k"><svg class="i"><use href="#i-shield"/></svg><span class="lab">Institutional capital</span></span><div class="val">Rs 19.86 crore</div><span class="sub">Rs 19,86,37,082.70</span></div>
+          <div class="cell"><span class="k"><svg class="i"><use href="#i-chart"/></svg><span class="lab">Share capital</span></span><div class="val">Rs 14.63 crore</div><span class="sub">Rs 14,62,75,300.00</span></div>
+        </div>
+        <div class="foot"><span class="sub">Source: BUSA monthly report. Served by 50 staff across 5 service centres.</span><a class="btn" href="#"><svg class="i"><use href="#i-download"/></svg>Monthly report</a></div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<div style="height:60px"></div>
+
+<script>
+  document.querySelectorAll('.view button').forEach(b => b.onclick = () => {
+    document.body.classList.toggle('phone', b.dataset.w === 'phone');
+    document.querySelectorAll('.view button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  });
+  // bar segments are hover/focus targets for their tooltip
+  document.querySelectorAll('.split i[data-tip]').forEach(i => i.tabIndex = 0);
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Feedback panel — concept demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;height:100%;font-family:Mukta,system-ui,sans-serif}
+  iframe.site{position:fixed;inset:0;width:100%;height:100%;border:0}
+  .demo{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:70;display:flex;gap:12px;align-items:center;background:#16202A;color:#fff;border-radius:999px;padding:7px 8px 7px 18px;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);font-size:14.5px;max-width:calc(100vw - 24px)}
+  .demo b{color:#FFB3BE}
+  .demo button{border:0;border-radius:999px;padding:6px 14px;font:500 13.5px Poppins,system-ui,sans-serif;cursor:pointer}
+  .demo .inbox{background:#fff;color:#16202A;white-space:nowrap}
+  .demo .x{background:transparent;color:#B9C2CA;padding:6px 10px}
+  dialog.ib{border:0;border-radius:16px;padding:0;width:min(760px,94vw);max-height:86vh;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);font-family:Mukta,system-ui,sans-serif;color:#3D4956}
+  dialog.ib::backdrop{background:rgba(3,40,22,.5)}
+  .ib-h{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid #E1E6EB;position:sticky;top:0;background:#fff}
+  .ib-h h2{margin:0;font:600 19px Poppins,system-ui,sans-serif;color:#16202A}
+  .ib-h p{margin:2px 0 0;font-size:13.5px;color:#687482}
+  .ib-h .sp{margin-left:auto;display:flex;gap:8px}
+  .ib-h button{border:1px solid #CBD3DA;background:#fff;border-radius:8px;padding:6px 12px;font:500 13.5px Poppins,system-ui,sans-serif;cursor:pointer}
+  .ib-list{list-style:none;margin:0;padding:8px 22px 22px}
+  .ib-list li{border-bottom:1px solid #E1E6EB;padding:14px 0;display:grid;gap:6px}
+  .ib-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;color:#687482}
+  .ib-top b{font:600 14px Poppins,system-ui,sans-serif;color:#064A29}
+  .tag{border-radius:999px;padding:1px 10px;font-size:12.5px;font-weight:600;background:#EDF6F0;color:#064A29}
+  .tag.complaint{background:#FDECEE;color:#9E0D20}
+  .ib-msg{color:#16202A;white-space:pre-wrap}
+  .ib-meta{font-size:13.5px;color:#3D4956}
+  .empty{padding:30px 22px;color:#687482}
+</style>
+</head>
+<body>
+<iframe class="site" id="site" title="BUSA homepage mockup"></iframe>
+
+<div class="demo" id="demoBar">
+  <span>Concept demo: click the red <b>Feedback</b> tab on the right edge.</span>
+  <button type="button" class="inbox" id="inboxBtn">Demo inbox (0)</button>
+  <button type="button" class="x" id="hideBar" aria-label="Hide this bar">Hide</button>
+</div>
+
+<dialog class="ib" id="inbox" aria-labelledby="ibTitle">
+  <div class="ib-h">
+    <div><h2 id="ibTitle">Demo inbox</h2><p>What BUSA staff would see. In this demo, messages are kept only in this browser.</p></div>
+    <div class="sp"><button type="button" id="clearIb">Clear</button><button type="button" id="closeIb">Close</button></div>
+  </div>
+  <ul class="ib-list" id="ibList"></ul>
+</dialog>
+
+<script>
+  // The homepage now includes the feedback tab itself; this page only adds the demo inbox around it.
+  document.getElementById('site').src = '../index.html' + location.search;
+</script>
+<script>
+  const KEY = 'busa-feedback', ib = document.getElementById('inbox'), list = document.getElementById('ibList'), btn = document.getElementById('inboxBtn');
+  const types = { suggestion: 'Suggestion', complaint: 'Complaint', praise: 'Appreciation', website: 'Website issue' };
+  const rates = ['', 'Very poor', 'Poor', 'Okay', 'Good', 'Excellent'];
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (_) { return []; } };
+  function refresh() {
+    const items = load();
+    btn.textContent = `Demo inbox (${items.length})`;
+    list.innerHTML = items.length ? items.map(r => `
+      <li>
+        <div class="ib-top"><b>${esc(r.ref)}</b><span class="tag ${r.type}">${types[r.type] || r.type}</span>${r.rating ? `<span>Rating: ${rates[r.rating]}</span>` : ''}<span>${esc(r.centre)}</span><span>${new Date(r.createdAt).toLocaleString()}</span></div>
+        <div class="ib-msg">${esc(r.message)}</div>
+        <div class="ib-meta">${r.reply ? `Reply to: <b>${esc(r.name)}</b>, ${esc(r.contact)}${r.member ? `, member ${esc(r.member)}` : ''}` : 'No reply requested'}</div>
+      </li>`).join('') : '<li class="empty">No feedback yet. Send some from the Feedback tab.</li>';
+  }
+  btn.onclick = () => { refresh(); ib.showModal(); };
+  document.getElementById('closeIb').onclick = () => ib.close();
+  document.getElementById('clearIb').onclick = () => { localStorage.removeItem(KEY); refresh(); };
+  ib.addEventListener('click', e => { if (e.target === ib) ib.close(); });
+  document.getElementById('hideBar').onclick = () => document.getElementById('demoBar').remove();
+  window.addEventListener('storage', e => { if (e.key === KEY || e.key === null) refresh(); });   // fired when the framed homepage saves feedback
+  refresh();
+</script>
+</body>
+</html>
